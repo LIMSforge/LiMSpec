@@ -1,0 +1,39 @@
+<%=  form_tag user_questions_path, :method => 'get', :id=>'user_questions_filter' do %>
+<%= text_field_tag :search, session[:search] %>
+<%=  submit_tag "Search", :name =>nil %>
+<% end %>
+
+<table class="reqTable">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th class= "reqText">Question Text</th>
+    <th class= "wide">Industries</th>
+    <th class= "wide">
+    <% if can? :download_xml, UserQuestion %>
+    <%=  link_to 'Export XML', '/user_questions/getXML' %>
+    <% end %></th>
+  </tr>
+  <tr></tr>
+  </thead>
+  <tbody id = "qTable" class = "questTable" >
+<% @user_questions.each do |userQuestion| %>
+  <tr class = "reqRow" id="user_question_<%= userQuestion.id%>" >
+    <td class="dragHandle"><%=image_tag("drag-handle.png") %></td>
+    <td><%= userQuestion.qTitle%></td>
+    <td class='reqText'><%= userQuestion.qText %></td>
+    <td><%= userQuestion.industryList %></td>
+    <td><%= link_to 'Show', userQuestion %>
+    <%= link_to 'Edit', edit_user_question_path(userQuestion) %>
+    <%= link_to 'Delete', userQuestion, confirm: 'Are you sure?', method: :delete %>
+    <% if userQuestion.userModified? %>
+    <%= link_to 'Revert', revert_user_question_path(userQuestion) %>
+    <% end %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<br/>
+<button type="button" id="updateQSortButton">Update Sort Order</button>

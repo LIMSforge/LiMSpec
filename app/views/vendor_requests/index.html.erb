@@ -1,0 +1,23 @@
+<h1>Listing vendor_requests</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vendor_requests.each do |vendor_request| %>
+  <tr>
+    <td><%= vendor_request.user_id %></td>
+    <td><%= link_to 'Show', vendor_request %></td>
+    <td><%= link_to 'Edit', edit_vendor_request_path(vendor_request) %></td>
+    <td><%= link_to 'Destroy', vendor_request, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vendor request', new_vendor_request_path %>

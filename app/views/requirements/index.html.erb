@@ -1,0 +1,17 @@
+<h1>Requirements</h1> <br/>
+<% if can? :review, Question %>
+    <h3> <%= link_to 'Review Submitted Requirements', '/requirements/review' %> </h3>
+<% end %>
+<% if (session[:showIndustry]) %>
+    <%= link_to "Show Requirements Outside of My Industries", "/requirements/change_industry_setting" %>
+<% else %>
+    <%= link_to "Show Only Requirements Belonging to My Industries", "/requirements/change_industry_setting" %>
+<% end %>
+<div id='reqList'>
+<%= render 'requirements' %>
+</div>
+<br />
+<br/> <br/>
+
+
+

@@ -1,0 +1,21 @@
+<%= form_for(@vendor_request) do |f| %>
+  <% if @vendor_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vendor_request.errors.count, "error") %> prohibited this vendor_request from being saved:</h2>
+
+      <ul>
+      <% @vendor_request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

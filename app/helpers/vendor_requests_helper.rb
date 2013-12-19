@@ -1,0 +1,2 @@
+module VendorRequestsHelper
+end

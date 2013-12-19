@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class UserQuestion - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>models/user_question.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-createUserQuestion">::createUserQuestion</a>
+    
+    <li><a href="#method-i-industryList">#industryList</a>
+    
+    <li><a href="#method-i-to_xml">#to_xml</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./views/layouts/odt/mimetype.html">mimetype</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Api.html">Api</a>
+  
+    <li><a href="./Api/V1.html">Api::V1</a>
+  
+    <li><a href="./Api/V1/UsersController.html">Api::V1::UsersController</a>
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AdministrationController.html">AdministrationController</a>
+  
+    <li><a href="./AdministrationHelper.html">AdministrationHelper</a>
+  
+    <li><a href="./AppSetting.html">AppSetting</a>
+  
+    <li><a href="./AppSettingsController.html">AppSettingsController</a>
+  
+    <li><a href="./AppSettingsHelper.html">AppSettingsHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Authentication.html">Authentication</a>
+  
+    <li><a href="./AuthenticationsController.html">AuthenticationsController</a>
+  
+    <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a>
+  
+    <li><a href="./CategoriesController.html">CategoriesController</a>
+  
+    <li><a href="./CategoriesHelper.html">CategoriesHelper</a>
+  
+    <li><a href="./Category.html">Category</a>
+  
+    <li><a href="./IdentitiesController.html">IdentitiesController</a>
+  
+    <li><a href="./IdentitiesHelper.html">IdentitiesHelper</a>
+  
+    <li><a href="./Identity.html">Identity</a>
+  
+    <li><a href="./IndQuestion.html">IndQuestion</a>
+  
+    <li><a href="./IndRequirement.html">IndRequirement</a>
+  
+    <li><a href="./IndUser.html">IndUser</a>
+  
+    <li><a href="./IndUserQuestion.html">IndUserQuestion</a>
+  
+    <li><a href="./IndUserRequirement.html">IndUserRequirement</a>
+  
+    <li><a href="./IndustriesController.html">IndustriesController</a>
+  
+    <li><a href="./IndustriesHelper.html">IndustriesHelper</a>
+  
+    <li><a href="./Industry.html">Industry</a>
+  
+    <li><a href="./Organization.html">Organization</a>
+  
+    <li><a href="./OrganizationsController.html">OrganizationsController</a>
+  
+    <li><a href="./OrganizationsHelper.html">OrganizationsHelper</a>
+  
+    <li><a href="./PasswordResetsController.html">PasswordResetsController</a>
+  
+    <li><a href="./PasswordResetsHelper.html">PasswordResetsHelper</a>
+  
+    <li><a href="./Question.html">Question</a>
+  
+    <li><a href="./QuestionsController.html">QuestionsController</a>
+  
+    <li><a href="./Requirement.html">Requirement</a>
+  
+    <li><a href="./RequirementsController.html">RequirementsController</a>
+  
+    <li><a href="./RequirementsHelper.html">RequirementsHelper</a>
+  
+    <li><a href="./Response.html">Response</a>
+  
+    <li><a href="./ResponsesController.html">ResponsesController</a>
+  
+    <li><a href="./ResponsesHelper.html">ResponsesHelper</a>
+  
+    <li><a href="./Role.html">Role</a>
+  
+    <li><a href="./RoleAssignment.html">RoleAssignment</a>
+  
+    <li><a href="./RolesController.html">RolesController</a>
+  
+    <li><a href="./RolesHelper.html">RolesHelper</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserMailer.html">UserMailer</a>
+  
+    <li><a href="./UserQuestion.html">UserQuestion</a>
+  
+    <li><a href="./UserQuestionsController.html">UserQuestionsController</a>
+  
+    <li><a href="./UserQuestionsHelper.html">UserQuestionsHelper</a>
+  
+    <li><a href="./UserRequirement.html">UserRequirement</a>
+  
+    <li><a href="./UserRequirementsController.html">UserRequirementsController</a>
+  
+    <li><a href="./UserRequirementsHelper.html">UserRequirementsHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./VendorRequest.html">VendorRequest</a>
+  
+    <li><a href="./VendorRequestsController.html">VendorRequestsController</a>
+  
+    <li><a href="./VendorRequestsHelper.html">VendorRequestsHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class UserQuestion</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-createUserQuestion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">createUserQuestion</span><span
+            class="method-args">(targetUser, targetQuestion)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="createUserQuestion-source">
+            <pre><span class="ruby-comment"># File models/user_question.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">createUserQuestion</span>(<span class="ruby-identifier">targetUser</span>, <span class="ruby-identifier">targetQuestion</span>)
+  <span class="ruby-identifier">userQuest</span> = <span class="ruby-constant">UserQuestion</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">question_id</span> = <span class="ruby-identifier">targetQuestion</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">targetUser</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">qTitle</span> = <span class="ruby-identifier">targetQuestion</span>.<span class="ruby-identifier">qTitle</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">qText</span> = <span class="ruby-identifier">targetQuestion</span>.<span class="ruby-identifier">qText</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">userModified</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-identifier">targetQuestion</span>.<span class="ruby-identifier">industries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ind</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">indUQuest</span> = <span class="ruby-constant">IndUserQuestion</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">indUQuest</span>.<span class="ruby-identifier">industry_id</span> = <span class="ruby-identifier">ind</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">indUQuest</span>.<span class="ruby-identifier">user_question_id</span> = <span class="ruby-identifier">userQuest</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">indUQuest</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- createUserQuestion-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- createUserQuestion-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-industryList" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">industryList</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="industryList-source">
+            <pre><span class="ruby-comment"># File models/user_question.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">industryList</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">industries</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">industry</span><span class="ruby-operator">|</span> <span class="ruby-identifier">industry</span>.<span class="ruby-identifier">indName</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- industryList-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- industryList-method -->
+
+    
+      <div id="method-i-to_xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_xml</span><span
+            class="method-args">(options={})</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_xml-source">
+            <pre><span class="ruby-comment"># File models/user_question.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_xml</span> <span class="ruby-identifier">options</span>={}
+
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">options</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+
+      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">reqNumber</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>
+
+    <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_xml-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_xml-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

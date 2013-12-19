@@ -1,0 +1,53 @@
+<%= form_for(@requirement) do |f| %>
+  <% if @requirement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@requirement.errors.count, "error") %> prohibited this requirement from being saved:</h2>
+
+      <ul>
+      <% @requirement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <% if !(@requirement.source_id.nil?) %>
+    <p><b>Requirement is a private copy</b></p>
+    <% end %>
+  <span>
+  <div class = "field">
+     <%= f.label "Category"%><%=  collection_select :requirement, :category_id, Category.all, :id, :catName, :include_blank=> true %>
+  </div>
+  <% if can? :approve, @requirement %>
+  <div class = "field" id="reqStatusField">
+    <%= f.label "Status" %><%= select "requirement", "status", %w[Public Rejected Submitted], :include_blank=> true %>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "Title" %><br />
+    <%= f.text_field :reqTitle %>
+  </div>  </span>
+    <% if can? :create, @requirement %>
+           <% if (@requirement.status == 'Private') and (@requirement.source_id.nil?) %>
+                <div class ="field">
+                    <%=  check_box_tag "Submit_for_Approval"%> Submit for Approval
+                </div>
+           <% end %>
+          <% end %>
+  <div class="field">
+    <%= f.label "Requirement Text" %><br />
+    <%= f.text_area :reqText %>
+  </div>
+    <div class="field">
+    <%=  label_tag "Industries" %>  <br/>
+        <% Industry.all.each do |industry| %>
+        <div>
+          <%=  hidden_field_tag "requirement[industry_ids][]", nil %>
+          <%=  check_box_tag "requirement[industry_ids][]", industry.id, @requirement.industries.include?(industry) %>
+          <%=  label_tag dom_id(industry), industry.indName %>
+        </div>
+        <% end %>
+      </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Title" %><br />
+    <%= f.text_field :qTitle %>
+  </div>
+    <% if can? :approve, @question %>
+      <div class = "field" id="qStatusField">
+        <%= f.label "Status" %><%= select "question", "status", %w[Public Private Submitted], :include_blank=> true %>
+      </div>
+      <% end %>
+  <div class="field">
+    <%= f.label "Question" %><br />
+    <%= f.text_area :qText %>
+  </div>
+    <div class="field">
+        <%=  label_tag "Industries" %>  <br/>
+            <% Industry.all.each do |industry| %>
+            <div>
+              <%=  hidden_field_tag "question[industry_ids][]", nil %>
+              <%=  check_box_tag "question[industry_ids][]", industry.id, @question.industries.include?(industry) %>
+              <%=  label_tag dom_id(industry), industry.indName %>
+            </div>
+            <% end %>
+          </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

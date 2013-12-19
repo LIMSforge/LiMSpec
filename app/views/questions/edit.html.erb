@@ -1,0 +1,13 @@
+<h1>Editing question</h1>
+<br/>
+<% if !(@question.source_id.nil?) %>
+<p><b>Question is a private copy</b></p>
+<% end %>
+<%= render 'form' %>
+
+<%= link_to 'Show', @question %> |
+<% if session['review'].nil? or session['review'] == false %>
+<%= link_to 'Back', questions_path %>
+<% else %>
+<%= link_to 'Back', '/questions/review' %>
+<% end %>

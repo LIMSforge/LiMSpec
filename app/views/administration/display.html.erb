@@ -1,0 +1,20 @@
+<h1>Administration</h1>
+<br/>
+<br/>
+<h3><%= link_to "Manage Categories", categories_path %></h3><br/>
+<h3><%= link_to "Manage Users", users_path %></h3><br/>
+<hr/>
+<h3><%= link_to "Manage External Applications", oauth_applications_path %></h3><br/>
+<hr/>
+<h3>Send a System Announcement</h3>
+<%= form_tag system_announcement_path, method: :post do %>
+  <div class="field">
+    <%=  label_tag :subject %>
+    <%=  text_field_tag :subject, params[:subtext] %>
+  </div>
+  <div class = "field">
+    <%= label_tag :announcement %><br/>
+    <%= text_area_tag :announcement, params[:announcetext], size: "55 x 10" %>
+  </div>
+  <div class="actions"><%= submit_tag "Send Announcement" %></div>
+<% end %>

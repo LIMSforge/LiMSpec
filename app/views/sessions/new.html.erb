@@ -1,0 +1,54 @@
+<% if current_user %>
+  <h1>User Profile</h1>
+  <p>
+    <strong>Name:</strong>
+    <%= current_user.name %>
+  </p>
+  <p>
+    <strong>Provider:</strong>
+    <%= current_user.provider %>
+  </p>
+
+  <p><%= link_to "Log out", logout_path %></p>
+
+    <p><strong>You may select additional authentication services:</strong></p>
+<% else %>
+  <h1>Sign In</h1>
+
+  <p><strong>Sign in through one of these services:</strong></p>
+<% end %>
+
+  <div class="auth_providers">
+    <a href="/auth/linkedin" class="auth_provider">
+          <%= image_tag "authButtons/linkedin_64.png", size: "64x64", alt: "LinkedIn" %>
+          LinkedIn
+        </a>
+    <a href="/auth/google" class="auth_provider">
+      <%= image_tag "authButtons/google_64.png", size: "64x64", alt: "Google" %>
+      Google
+    </a>
+    <a href="/auth/twitter" class="auth_provider">
+          <%= image_tag "authButtons/twitter_64.png", size: "64x64", alt: "Twitter" %>
+          Twitter
+    </a>
+  </div>
+<% if !current_user %>
+<p>
+  <strong>Don&rsquo;t use these services?</strong>
+  <%=  link_to "Create an account", new_identity_path %> or login below.
+</p>
+  <%= form_tag "/auth/identity/callback" do %>
+    <div class="field">
+      <%= label_tag :auth_key, "Email" %><br>
+      <%= text_field_tag :auth_key %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br>
+      <%= password_field_tag :password %>
+    </div>
+    <p><%= link_to "Forgotten password?", new_password_reset_path %> </p>
+    <div class="actions"><%= submit_tag "Login" %></div>
+  <% end %>
+ </p>
+  <% end %>
+

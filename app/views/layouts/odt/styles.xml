@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-styles office:version="1.2"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+                        xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+                        xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+                        xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+                        xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+                        xmlns:rpt="http://openoffice.org/2005/report"
+                        xmlns:rdfa="http://docs.oasis-open.org/opendocument/meta/rdfa#"
+                        xmlns:ooow="http://openoffice.org/2004/writer"
+                        xmlns:oooc="http://openoffice.org/2004/calc"
+                        xmlns:ooo="http://openoffice.org/2004/office"
+                        xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+                        xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2"
+                        xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+                        xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+                        xmlns:math="http://www.w3.org/1998/Math/MathML"
+                        xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+                        xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+                        xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+                        xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+                        xmlns:dom="http://www.w3.org/2001/xml-events"
+                        xmlns:dc="http://purl.org/dc/elements/1.1/"
+                        xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0">
+  <office:font-face-decls>
+    <style:font-face style:font-charset="x-symbol"
+                     style:font-family-generic="roman"
+                     style:font-pitch="variable" style:name="Symbol"
+                     svg:font-family="Symbol"/>
+
+    <style:font-face style:name="Tahoma1" svg:font-family="Tahoma"/>
+
+    <style:font-face style:font-family-generic="roman"
+                     style:font-pitch="variable" style:name="Californian FB"
+                     svg:font-family="'Californian FB'"/>
+
+    <style:font-face style:font-family-generic="roman"
+                     style:font-pitch="variable" style:name="Times New Roman"
+                     svg:font-family="'Times New Roman'"/>
+
+    <style:font-face style:font-family-generic="swiss"
+                     style:font-pitch="variable" style:name="Arial"
+                     svg:font-family="Arial"/>
+
+    <style:font-face style:font-family-generic="swiss"
+                     style:font-pitch="variable" style:name="Century Gothic"
+                     svg:font-family="'Century Gothic'"/>
+
+    <style:font-face style:font-family-generic="swiss"
+                     style:font-pitch="variable" style:name="Verdana"
+                     svg:font-family="Verdana"/>
+
+    <style:font-face style:font-family-generic="system"
+                     style:font-pitch="variable" style:name="Arial1"
+                     svg:font-family="Arial"/>
+
+    <style:font-face style:font-family-generic="system"
+                     style:font-pitch="variable" style:name="Tahoma"
+                     svg:font-family="Tahoma"/>
+  </office:font-face-decls>
+
+  <office:styles>
+    <style:default-style style:family="graphic">
+      <style:graphic-properties draw:end-line-spacing-horizontal="0.1114in"
+                                draw:end-line-spacing-vertical="0.1114in"
+                                draw:shadow-offset-x="0.1181in"
+                                draw:shadow-offset-y="0.1181in"
+                                draw:start-line-spacing-horizontal="0.1114in"
+                                draw:start-line-spacing-vertical="0.1114in"
+                                style:flow-with-text="false"/>
+
+      <style:paragraph-properties style:font-independent-line-spacing="false"
+                                  style:line-break="strict"
+                                  style:text-autospace="ideograph-alpha"
+                                  style:writing-mode="lr-tb">
+        <style:tab-stops/>
+      </style:paragraph-properties>
+
+      <style:text-properties style:country-asian="none"
+                             style:country-complex="none"
+                             style:font-size-asian="10.5pt"
+                             style:font-size-complex="12pt"
+                             style:language-asian="zxx"
+                             style:language-complex="zxx"
+                             style:use-window-font-color="true"
+                             fo:country="US" fo:font-size="12pt"
+                             fo:language="en"/>
+    </style:default-style>
+
+    <style:default-style style:family="paragraph">
+      <style:paragraph-properties style:line-break="strict"
+                                  style:punctuation-wrap="hanging"
+                                  style:tab-stop-distance="0.5in"
+                                  style:text-autospace="ideograph-alpha"
+                                  style:writing-mode="page"
+                                  fo:hyphenation-ladder-count="no-limit"/>
+
+      <style:text-properties style:country-asian="none"
+                             style:country-complex="none"
+                             style:font-name="Times New Roman"
+                             style:font-name-asian="Arial1"
+                             style:font-name-complex="Tahoma"
+                             style:font-size-asian="10.5pt"
+                             style:font-size-complex="12pt"
+                             style:language-asian="zxx"
+                             style:language-complex="zxx"
+                             style:use-window-font-color="true"
+                             fo:country="US" fo:font-size="12pt"
+                             fo:hyphenate="false"
+                             fo:hyphenation-push-char-count="2"
+                             fo:hyphenation-remain-char-count="2"
+                             fo:language="en"/>
+    </style:default-style>
+
+    <style:default-style style:family="table">
+      <style:table-properties table:border-model="collapsing"/>
+    </style:default-style>
+
+    <style:default-style style:family="table-row">
+      <style:table-row-properties fo:keep-together="auto"/>
+    </style:default-style>
+
+    <style:style style:class="text" style:family="paragraph"
+                 style:name="Standard">
+      <style:paragraph-properties style:writing-mode="lr-tb" fo:orphans="2"
+                                  fo:widows="2"/>
+
+      <style:text-properties style:country-complex="SA"
+                             style:font-name="Times New Roman"
+                             style:font-name-asian="Times New Roman"
+                             style:font-name-complex="Times New Roman"
+                             style:font-size-asian="12pt"
+                             style:font-size-complex="12pt"
+                             style:language-complex="ar"
+                             style:use-window-font-color="true"
+                             fo:country="US" fo:font-size="12pt"
+                             fo:language="en"/>
+    </style:style>
+
+    <style:style style:class="text" style:family="paragraph"
+                 style:name="Heading" style:next-style-name="Text_20_body"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties fo:keep-with-next="always"
+                                  fo:margin-bottom="0.0835in"
+                                  fo:margin-top="0.1665in"/>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-asian="Arial1"
+                             style:font-name-complex="Tahoma"
+                             style:font-size-asian="14pt"
+                             style:font-size-complex="14pt"
+                             fo:font-size="14pt"/>
+    </style:style>
+
+    <style:style style:class="text" style:display-name="Text body"
+                 style:family="paragraph" style:name="Text_20_body"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties fo:margin-bottom="0.0835in"
+                                  fo:margin-top="0in"/>
+    </style:style>
+
+    <style:style style:class="list" style:family="paragraph" style:name="List"
+                 style:parent-style-name="Text_20_body">
+      <style:text-properties style:font-name-complex="Tahoma1"
+                             style:font-size-asian="12pt"/>
+    </style:style>
+
+    <style:style style:class="extra" style:family="paragraph"
+                 style:name="Caption" style:parent-style-name="Standard">
+      <style:paragraph-properties text:line-number="0"
+                                  text:number-lines="false"
+                                  fo:margin-bottom="0.0835in"
+                                  fo:margin-top="0.0835in"/>
+
+      <style:text-properties style:font-name-complex="Tahoma1"
+                             style:font-size-asian="12pt"
+                             style:font-size-complex="12pt"
+                             style:font-style-asian="italic"
+                             style:font-style-complex="italic"
+                             fo:font-size="12pt" fo:font-style="italic"/>
+    </style:style>
+
+    <style:style style:class="index" style:family="paragraph"
+                 style:name="Index" style:parent-style-name="Standard">
+      <style:paragraph-properties text:line-number="0"
+                                  text:number-lines="false"/>
+
+      <style:text-properties style:font-name-complex="Tahoma1"
+                             style:font-size-asian="12pt"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="1"
+                 style:display-name="Heading 1" style:family="paragraph"
+                 style:name="Heading_20_1" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="14pt"
+                             style:font-size-complex="14pt" fo:country="none"
+                             fo:font-size="18pt" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="2"
+                 style:display-name="Heading 2" style:family="paragraph"
+                 style:name="Heading_20_2" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="10pt"
+                             style:font-size-complex="10pt" fo:country="none"
+                             fo:font-size="14pt" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="3"
+                 style:display-name="Heading 3" style:family="paragraph"
+                 style:name="Heading_20_3" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="10pt"
+                             style:font-size-complex="10pt" fo:country="none"
+                             fo:font-size="12pt" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="4"
+                 style:display-name="Heading 4" style:family="paragraph"
+                 style:name="Heading_20_4" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="10pt"
+                             style:font-size-complex="10pt" fo:country="none"
+                             fo:font-size="10pt" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="5"
+                 style:display-name="Heading 5" style:family="paragraph"
+                 style:name="Heading_20_5" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="10pt"
+                             style:font-size-complex="10pt" fo:country="none"
+                             fo:font-size="10pt" fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="6"
+                 style:display-name="Heading 6" style:family="paragraph"
+                 style:name="Heading_20_6" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="10pt"
+                             style:font-size-complex="10pt" fo:country="none"
+                             fo:font-size="10pt" fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="7"
+                 style:display-name="Heading 7" style:family="paragraph"
+                 style:name="Heading_20_7" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-weight-asian="bold"
+                             style:font-weight-complex="bold"
+                             style:text-underline-color="font-color"
+                             style:text-underline-style="solid"
+                             style:text-underline-width="auto"
+                             fo:country="none" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="8"
+                 style:display-name="Heading 8" style:family="paragraph"
+                 style:name="Heading_20_8" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-weight-asian="bold"
+                             style:font-weight-complex="bold"
+                             style:text-underline-color="font-color"
+                             style:text-underline-style="solid"
+                             style:text-underline-width="auto"
+                             fo:country="none" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="text" style:default-outline-level="9"
+                 style:display-name="Heading 9" style:family="paragraph"
+                 style:name="Heading_20_9" style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-weight-asian="bold"
+                             style:font-weight-complex="bold"
+                             style:text-underline-color="font-color"
+                             style:text-underline-style="solid"
+                             style:text-underline-width="auto"
+                             fo:country="none" fo:font-weight="bold"
+                             fo:language="none"/>
+    </style:style>
+
+    <style:style style:display-name="heading 10" style:family="paragraph"
+                 style:name="heading_20_10">
+      <style:paragraph-properties style:text-autospace="none"
+                                  fo:keep-with-next="always" fo:orphans="2"
+                                  fo:widows="2">
+        <style:tab-stops>
+          <style:tab-stop style:position="0.8335in"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:country-complex="SA"
+                             style:font-name="Arial"
+                             style:font-name-asian="Arial"
+                             style:font-name-complex="Arial"
+                             style:font-size-asian="12pt"
+                             style:font-size-complex="12pt"
+                             style:font-weight-asian="bold"
+                             style:font-weight-complex="bold"
+                             style:language-complex="ar"
+                             style:text-underline-color="font-color"
+                             style:text-underline-style="solid"
+                             style:text-underline-width="auto"
+                             style:use-window-font-color="true"
+                             fo:country="none" fo:font-size="12pt"
+                             fo:font-weight="bold" fo:language="none"/>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 1"
+                 style:family="paragraph" style:name="Contents_20_1"
+                 style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:text-properties style:font-name="Arial"/>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 2"
+                 style:family="paragraph" style:name="Contents_20_2"
+                 style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="0.1665in"
+                                  fo:margin-right="0in" fo:text-indent="0in"/>
+
+      <style:text-properties style:font-name="Arial"/>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 3"
+                 style:family="paragraph" style:name="Contents_20_3"
+                 style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="0.3335in"
+                                  fo:margin-right="0in" fo:text-indent="0in"/>
+
+      <style:text-properties style:font-name="Arial"/>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 4"
+                 style:family="paragraph" style:name="Contents_20_4"
+                 style:next-style-name="Standard"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="0.5in" fo:margin-right="0in"
+                                  fo:text-indent="0in"/>
+
+      <style:text-properties style:font-name="Arial"/>
+    </style:style>
+
+    <style:style style:class="extra" style:display-name="Frame contents"
+                 style:family="paragraph" style:name="Frame_20_contents"
+                 style:parent-style-name="Text_20_body"/>
+
+    <style:style style:class="index" style:display-name="Contents 5"
+                 style:family="paragraph" style:name="Contents_20_5"
+                 style:parent-style-name="Index">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="0.7862in"
+                                  fo:margin-right="0in" fo:text-indent="0in">
+        <style:tab-stops>
+          <style:tab-stop style:leader-style="dotted" style:leader-text="."
+                          style:position="6.139in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 6"
+                 style:family="paragraph" style:name="Contents_20_6"
+                 style:parent-style-name="Index">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="0.9827in"
+                                  fo:margin-right="0in" fo:text-indent="0in">
+        <style:tab-stops>
+          <style:tab-stop style:leader-style="dotted" style:leader-text="."
+                          style:position="5.9425in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 7"
+                 style:family="paragraph" style:name="Contents_20_7"
+                 style:parent-style-name="Index">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="1.1791in"
+                                  fo:margin-right="0in" fo:text-indent="0in">
+        <style:tab-stops>
+          <style:tab-stop style:leader-style="dotted" style:leader-text="."
+                          style:position="5.7457in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 8"
+                 style:family="paragraph" style:name="Contents_20_8"
+                 style:parent-style-name="Index">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="1.3756in"
+                                  fo:margin-right="0in" fo:text-indent="0in">
+        <style:tab-stops>
+          <style:tab-stop style:leader-style="dotted" style:leader-text="."
+                          style:position="5.5492in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 9"
+                 style:family="paragraph" style:name="Contents_20_9"
+                 style:parent-style-name="Index">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="1.572in"
+                                  fo:margin-right="0in" fo:text-indent="0in">
+        <style:tab-stops>
+          <style:tab-stop style:leader-style="dotted" style:leader-text="."
+                          style:position="5.3528in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="index" style:display-name="Contents 10"
+                 style:family="paragraph" style:name="Contents_20_10"
+                 style:parent-style-name="Index">
+      <style:paragraph-properties style:auto-text-indent="false"
+                                  fo:margin-left="1.7689in"
+                                  fo:margin-right="0in" fo:text-indent="0in">
+        <style:tab-stops>
+          <style:tab-stop style:leader-style="dotted" style:leader-text="."
+                          style:position="5.1563in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="extra" style:display-name="Table Contents"
+                 style:family="paragraph" style:name="Table_20_Contents"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties text:line-number="0"
+                                  text:number-lines="false"/>
+    </style:style>
+
+    <style:style style:class="extra" style:display-name="Table Heading"
+                 style:family="paragraph" style:name="Table_20_Heading"
+                 style:parent-style-name="Table_20_Contents">
+      <style:paragraph-properties style:justify-single-word="false"
+                                  text:line-number="0"
+                                  text:number-lines="false"
+                                  fo:text-align="center"/>
+
+      <style:text-properties style:font-weight-asian="bold"
+                             style:font-weight-complex="bold"
+                             fo:font-weight="bold"/>
+    </style:style>
+
+    <style:style style:class="extra" style:family="paragraph"
+                 style:name="Footer" style:parent-style-name="Standard">
+      <style:paragraph-properties text:line-number="0"
+                                  text:number-lines="false">
+        <style:tab-stops>
+          <style:tab-stop style:position="3.4626in" style:type="center"/>
+
+          <style:tab-stop style:position="6.9252in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:class="extra" style:family="paragraph"
+                 style:name="Header" style:parent-style-name="Standard">
+      <style:paragraph-properties text:line-number="0"
+                                  text:number-lines="false">
+        <style:tab-stops>
+          <style:tab-stop style:position="3.4626in" style:type="center"/>
+
+          <style:tab-stop style:position="6.9252in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+    </style:style>
+
+    <style:style style:display-name="Default Paragraph Font"
+                 style:family="text" style:name="Default_20_Paragraph_20_Font"/>
+
+    <style:style style:display-name="Internet link" style:family="text"
+                 style:name="Internet_20_link"
+                 style:parent-style-name="Default_20_Paragraph_20_Font">
+      <style:text-properties style:font-name-complex="Times New Roman"
+                             style:text-underline-color="font-color"
+                             style:text-underline-style="solid"
+                             style:text-underline-width="auto"
+                             fo:color="#0000ff"/>
+    </style:style>
+
+    <style:style style:family="graphic" style:name="Frame">
+      <style:graphic-properties style:horizontal-pos="center"
+                                style:horizontal-rel="paragraph-content"
+                                style:number-wrapped-paragraphs="no-limit"
+                                style:vertical-pos="top"
+                                style:vertical-rel="paragraph-content"
+                                style:wrap="parallel"
+                                style:wrap-contour="false" svg:x="0in"
+                                svg:y="0in" text:anchor-type="paragraph"/>
+    </style:style>
+
+    <style:style style:family="graphic" style:name="Graphics">
+      <style:graphic-properties style:horizontal-pos="center"
+                                style:horizontal-rel="paragraph"
+                                style:number-wrapped-paragraphs="no-limit"
+                                style:vertical-pos="top"
+                                style:vertical-rel="paragraph"
+                                style:wrap="dynamic"
+                                style:wrap-contour="false" svg:x="0in"
+                                svg:y="0in" text:anchor-type="paragraph"/>
+    </style:style>
+
+    <style:style style:family="graphic" style:name="OLE">
+      <style:graphic-properties style:horizontal-pos="center"
+                                style:horizontal-rel="paragraph"
+                                style:number-wrapped-paragraphs="no-limit"
+                                style:vertical-pos="top"
+                                style:vertical-rel="paragraph"
+                                style:wrap="dynamic"
+                                style:wrap-contour="false" svg:x="0in"
+                                svg:y="0in" text:anchor-type="paragraph"/>
+    </style:style>
+
+    <text:outline-style style:name="Outline">
+      <text:outline-level-style style:num-format="" text:level="1">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.3in"
+                                            fo:margin-left="0.3in"
+                                            fo:text-indent="-0.3in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="2">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.4in"
+                                            fo:margin-left="0.4in"
+                                            fo:text-indent="-0.4in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="3">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.5in"
+                                            fo:margin-left="0.5in"
+                                            fo:text-indent="-0.5in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="4">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.6in"
+                                            fo:margin-left="0.6in"
+                                            fo:text-indent="-0.6in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="5">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.7in"
+                                            fo:margin-left="0.7in"
+                                            fo:text-indent="-0.7in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="6">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.8in"
+                                            fo:margin-left="0.8in"
+                                            fo:text-indent="-0.8in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="7">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="0.9in"
+                                            fo:margin-left="0.9in"
+                                            fo:text-indent="-0.9in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="8">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="1in"
+                                            fo:margin-left="1in"
+                                            fo:text-indent="-1in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="9">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="1.1in"
+                                            fo:margin-left="1.1in"
+                                            fo:text-indent="-1.1in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+
+      <text:outline-level-style style:num-format="" text:level="10">
+        <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+          <style:list-level-label-alignment text:label-followed-by="listtab"
+                                            text:list-tab-stop-position="1.2in"
+                                            fo:margin-left="1.2in"
+                                            fo:text-indent="-1.2in"/>
+        </style:list-level-properties>
+      </text:outline-level-style>
+    </text:outline-style>
+
+    <text:notes-configuration style:num-format="1"
+                              text:footnotes-position="page"
+                              text:note-class="footnote"
+                              text:start-numbering-at="document"
+                              text:start-value="0"/>
+
+    <text:notes-configuration style:num-format="i" text:note-class="endnote"
+                              text:start-value="0"/>
+
+    <text:linenumbering-configuration style:num-format="1" text:increment="5"
+                                      text:number-lines="false"
+                                      text:number-position="left"
+                                      text:offset="0.1965in"/>
+
+    <style:default-page-layout>
+      <style:page-layout-properties style:layout-grid-standard-mode="true"/>
+    </style:default-page-layout>
+  </office:styles>
+
+  <office:automatic-styles>
+    <style:style style:family="paragraph" style:name="MP1"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none"/>
+
+      <style:text-properties style:font-name="Arial"/>
+    </style:style>
+
+    <style:style style:family="paragraph" style:name="MP2"
+                 style:parent-style-name="Standard">
+      <style:paragraph-properties style:text-autospace="none">
+        <style:tab-stops>
+          <style:tab-stop style:position="7.2681in" style:type="right"/>
+        </style:tab-stops>
+      </style:paragraph-properties>
+
+      <style:text-properties style:font-name="Arial"/>
+    </style:style>
+
+    <style:page-layout style:name="Mpm1">
+      <style:page-layout-properties style:footnote-max-height="0in"
+                                    style:layout-grid-base-height="0.25in"
+                                    style:layout-grid-base-width="0.1665in"
+                                    style:layout-grid-color="#c0c0c0"
+                                    style:layout-grid-display="false"
+                                    style:layout-grid-lines="42"
+                                    style:layout-grid-mode="none"
+                                    style:layout-grid-print="false"
+                                    style:layout-grid-ruby-below="false"
+                                    style:layout-grid-ruby-height="0in"
+                                    style:layout-grid-snap-to-characters="true"
+                                    style:num-format="1"
+                                    style:print-orientation="portrait"
+                                    style:writing-mode="lr-tb"
+                                    fo:margin-bottom="0.5in"
+                                    fo:margin-left="0.5in"
+                                    fo:margin-right="0.5in"
+                                    fo:margin-top="0.5in"
+                                    fo:page-height="11.6925in"
+                                    fo:page-width="8.2673in">
+        <style:footnote-sep style:adjustment="left" style:color="#000000"
+                            style:distance-after-sep="0.0398in"
+                            style:distance-before-sep="0.0398in"
+                            style:rel-width="25%" style:width="0.0071in"/>
+      </style:page-layout-properties>
+
+      <style:header-style/>
+
+      <style:footer-style>
+        <style:header-footer-properties style:dynamic-spacing="true"
+                                        fo:margin-top="0in"
+                                        fo:min-height="0.039in"/>
+      </style:footer-style>
+    </style:page-layout>
+
+    <style:page-layout style:name="Mpm2">
+      <style:page-layout-properties style:footnote-max-height="0in"
+                                    style:layout-grid-base-height="0.25in"
+                                    style:layout-grid-base-width="0.1665in"
+                                    style:layout-grid-color="#c0c0c0"
+                                    style:layout-grid-display="false"
+                                    style:layout-grid-lines="42"
+                                    style:layout-grid-mode="none"
+                                    style:layout-grid-print="false"
+                                    style:layout-grid-ruby-below="false"
+                                    style:layout-grid-ruby-height="0in"
+                                    style:layout-grid-snap-to-characters="true"
+                                    style:num-format="1"
+                                    style:print-orientation="portrait"
+                                    style:writing-mode="lr-tb"
+                                    fo:margin-bottom="0.5in"
+                                    fo:margin-left="0.5in"
+                                    fo:margin-right="0.5in"
+                                    fo:margin-top="0.5in"
+                                    fo:page-height="11.6925in"
+                                    fo:page-width="8.2673in">
+        <style:footnote-sep style:adjustment="left" style:color="#000000"
+                            style:distance-after-sep="0.0398in"
+                            style:distance-before-sep="0.0398in"
+                            style:rel-width="25%" style:width="0.0071in"/>
+      </style:page-layout-properties>
+
+      <style:header-style>
+        <style:header-footer-properties fo:min-height="0in"/>
+      </style:header-style>
+
+      <style:footer-style>
+        <style:header-footer-properties fo:min-height="0in"/>
+      </style:footer-style>
+    </style:page-layout>
+  </office:automatic-styles>
+
+  <office:master-styles>
+    <style:master-page style:name="Standard" style:page-layout-name="Mpm1">
+      <style:footer>
+        <text:p text:style-name="MP1"/>
+
+        <text:p text:style-name="MP2">
+          <text:tab/>
+        </text:p>
+      </style:footer>
+    </style:master-page>
+
+    <style:master-page style:display-name="First Page"
+                       style:name="First_20_Page"
+                       style:next-style-name="Standard"
+                       style:page-layout-name="Mpm2">
+      <style:header>
+        <text:p text:style-name="Header"/>
+      </style:header>
+
+      <style:footer>
+        <text:p text:style-name="Footer"/>
+      </style:footer>
+    </style:master-page>
+  </office:master-styles>
+</office:document-styles>

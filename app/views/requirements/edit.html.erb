@@ -1,0 +1,12 @@
+<h1>Editing requirement</h1>
+<br/>
+<br/>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @requirement %> |
+<% if session['review'].nil? or session['review'] == false %>
+<%= link_to 'Back', requirements_path %>
+<% else %>
+<%= link_to 'Back', '/requirements/review' %>
+<% end %>

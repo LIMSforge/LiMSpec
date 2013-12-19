@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+Author: Reality Software
+Website: http://www.realitysoftware.ca
+Note: This is a free template released under the Creative Commons Attribution 3.0 license,
+which means you can use it in any way you want provided you keep the link to the author intact.
+-->
+<html>
+<head>
+  <title>LiMSpec</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id = "main">
+<% if current_user %>
+<div class="menu"><ul class="menu_list">
+  <% if current_user.role?(:Administrator) %>
+  <li>
+  <%= link_to "Administration", administer_path %>
+  </li>
+  <% end %>
+  <li class="topmenu">
+  <a href="#">Requirements</a>
+    <ul class="submenu">
+      <li>
+        <%=  link_to "Requirements List", requirements_path %>
+      </li>
+      <li>
+        <%= link_to "My Requirements", user_requirements_path%>
+      </li>
+      <% if can? :create, Requirement %>
+      <li>
+        <%= link_to 'New Requirement', new_requirement_path %>
+      </li>
+      <% end %>
+      <li>
+              <%= link_to 'New My Req.', new_user_requirement_path %>
+      </li>
+      <% if can? :review, Requirement %>
+       <li>
+          <%= link_to 'Review Submitted Reqs', '/requirements/review' %>
+       </li>
+      <% end %>
+    </ul>
+  </li>
+  <% if current_user.role?(:Administrator) %>
+  <li>
+  <%= link_to "Industries", industries_path %>
+  </li>
+  <% end %>
+  <li class = "topmenu">
+  <a href="#">Questions</a>
+    <ul class = "submenu">
+      <li><%= link_to "Questions", questions_path %></li>
+      <li><%= link_to "My Questions", user_questions_path %></li>
+      <% if can? :create, Question %>
+      <li><%= link_to "New Question", new_question_path %></li>
+      <% end %>
+      <li><%= link_to "New My Question", new_user_question_path %></li>
+    </ul>
+  </li>
+  <li class = "topmenu">
+  <a href = "#">Generate LIMSpec</a>
+  <ul class = "submenu">
+    <li><%= link_to "Public Items", '/vendorRequest/createPublicRequirementDoc.odt' %> </li>
+    <li><%= link_to "My Items", 'vendorRequest/createPrivateRequirementDoc.odt' %></li>
+  </ul>
+  </li>
+</ul>
+</div> <br/><br/>
+  <% end %>
+<div id="header"></div>
+ <br/><br/>
+<div id="user_nav">
+  <%if current_user%>
+    <a href="http://www.limswiki.org/index.php/Limspec">About</a> |
+    <%=  link_to "Contact", contact_us_path %> |
+    <%=  link_to "Logout", logout_path %> |
+    <%=  link_to "Account", edit_user_path(current_user)  %>
+  <%end%>
+</div><br/>
+  <div id="text">
+<% flash.each do |name, msg| %> <%= content_tag :div, msg, :id => "flash_#{name}" %> <% end %>
+<%= yield %>
+</div>
+</div>
+</body>
+</html>

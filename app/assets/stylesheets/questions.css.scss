@@ -1,0 +1,29 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+tr.questRow {
+  vertical-align:text-top;
+
+}
+
+tr.questRow td {
+  min-width: 100px;
+}
+
+tr.questRow td.indicatorCell {
+  min-width: 35px;
+}
+
+.questTable {
+  min-width: 900px;
+}
+
+.questTable th.wide {
+  width: 200px;
+}
+
+
+.questText {
+  min-width: 350px;
+}

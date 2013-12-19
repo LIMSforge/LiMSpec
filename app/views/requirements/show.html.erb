@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Category: </b>
+  <%if !@requirement.category_id.nil? %>
+  <%= @requirement.category.catName %>
+  <% else %>
+  Not defined
+  <% end %>
+</p>
+<p>
+  <b>Title:</b>
+  <%= @requirement.reqTitle %>
+</p>
+
+<p>
+  <b>Requirement:</b>
+  <%= @requirement.reqText %>
+</p>
+<div>
+<ul>
+<p><b>Industries</b></p>
+<% @requirement.industries.find_each do |industry| %>
+        <li> <%=  industry.indName%>  </li>
+<% end %>
+</ul>
+</div>
+<% if can? :edit, @requirement %>
+<%= link_to 'Edit', edit_requirement_path(@requirement) %> |
+<% end %>
+<% if can? :create, Requirement and (session['review'].nil? or !session['review'])%>
+<%= link_to 'New', new_requirement_path %> |
+<% end %>
+<% if session['review'].nil? or session['review'] == false %>
+<%= link_to 'Back', requirements_path %>
+<% else %>
+<%= link_to 'Back', '/requirements/review' %>
+<% end %>

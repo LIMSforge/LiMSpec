@@ -1,0 +1,44 @@
+<%=  form_tag user_requirements_path, :method => 'get', :id=>'user_requirements_filter' do %>
+<%= text_field_tag :search, session[:search] %>
+<%=  submit_tag "Search", :name =>nil %>
+<% end %>
+<%=  form_tag user_requirements_path, :method => 'put' do %>
+<table class="reqTable">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th class= "reqText">Requirement Text</th>
+    <th class= "wide"><%= select_tag :catSearch, options_from_collection_for_select(Category.all, :catName, :catName, session[:catSearch]), prompt: 'Category', class: 'catTag' %>
+    <%=  submit_tag "Filter", :name=> nil %></th>
+    <th class= "wide">Industries</th>
+    <th class= "wide">
+    <% if can? :download_xml, UserRequirement %>
+    <%=  link_to 'Export XML', '/user_requirements/getXML' %>
+    <% end %></th>
+  </tr>
+  <tr></tr>
+  </thead>
+  <tbody id = "userReq" >
+<% @user_requirements.each do |userRequirement| %>
+  <tr class = "reqRow" id="user_requirement_<%= userRequirement.id%>" >
+    <td class="dragHandle"><%=image_tag("drag-handle.png") %></td>
+    <td><%= userRequirement.req_title%></td>
+    <td class='reqText'><%= userRequirement.req_text %></td>
+    <td><%if !userRequirement.category_id.nil? %> <%=  userRequirement.category.catName %> <% end %></td>
+    <td><%= userRequirement.industryList %>
+    </td>
+    <td><%= link_to 'Show', userRequirement %>
+    <%= link_to 'Edit', edit_user_requirement_path(userRequirement) %>
+    <%= link_to 'Delete', userRequirement, confirm: 'Are you sure?', method: :delete %>
+    <% if userRequirement.userModified? %>
+    <%= link_to 'Revert', revert_user_requirement_path(userRequirement) %>
+    <% end %>
+    </td>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<br/>
+<button type="button" id="updateReqSortButton">Update Sort Order</button>
+<% end %>

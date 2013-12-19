@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @app_setting.user_id %>
+</p>
+
+<p>
+  <b>Showindustry:</b>
+  <%= @app_setting.showIndustry %>
+</p>
+
+
+<%= link_to 'Edit', edit_app_setting_path(@app_setting) %> |
+<%= link_to 'Back', app_settings_path %>

@@ -1,0 +1,32 @@
+<%= form_for(@user_question) do |f| %>
+  <% if @user_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_question.errors.count, "error") %> prohibited this user_question from being saved:</h2>
+
+      <ul>
+      <% @user_question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br/>
+  <br/>
+  <div class = "field">
+    <%= f.label "Title"%><%= f.text_field :qTitle %><br/>
+    <%= f.text_area :qText %><br/>
+  </div>
+    <div class="field">
+            <%=  label_tag "Industries" %>  <br/>
+                <% Industry.all.each do |industry| %>
+                <div>
+                  <%=  hidden_field_tag "user_question[industry_ids][]", nil %>
+                  <%=  check_box_tag "user_question[industry_ids][]", industry.id, @user_question.industries.include?(industry) %>
+                  <%=  label_tag dom_id(industry), industry.indName %>
+                </div>
+                <% end %>
+              </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

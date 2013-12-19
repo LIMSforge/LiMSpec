@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class UserRequirementsController - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>controllers/user_requirements_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-create">#create</a>
+    
+    <li><a href="#method-i-destroy">#destroy</a>
+    
+    <li><a href="#method-i-download_xml">#download_xml</a>
+    
+    <li><a href="#method-i-edit">#edit</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-revert">#revert</a>
+    
+    <li><a href="#method-i-show">#show</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+    <li><a href="#method-i-updateSort">#updateSort</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./views/layouts/odt/mimetype.html">mimetype</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Api.html">Api</a>
+  
+    <li><a href="./Api/V1.html">Api::V1</a>
+  
+    <li><a href="./Api/V1/UsersController.html">Api::V1::UsersController</a>
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./AdministrationController.html">AdministrationController</a>
+  
+    <li><a href="./AdministrationHelper.html">AdministrationHelper</a>
+  
+    <li><a href="./AppSetting.html">AppSetting</a>
+  
+    <li><a href="./AppSettingsController.html">AppSettingsController</a>
+  
+    <li><a href="./AppSettingsHelper.html">AppSettingsHelper</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Authentication.html">Authentication</a>
+  
+    <li><a href="./AuthenticationsController.html">AuthenticationsController</a>
+  
+    <li><a href="./AuthenticationsHelper.html">AuthenticationsHelper</a>
+  
+    <li><a href="./CategoriesController.html">CategoriesController</a>
+  
+    <li><a href="./CategoriesHelper.html">CategoriesHelper</a>
+  
+    <li><a href="./Category.html">Category</a>
+  
+    <li><a href="./IdentitiesController.html">IdentitiesController</a>
+  
+    <li><a href="./IdentitiesHelper.html">IdentitiesHelper</a>
+  
+    <li><a href="./Identity.html">Identity</a>
+  
+    <li><a href="./IndQuestion.html">IndQuestion</a>
+  
+    <li><a href="./IndRequirement.html">IndRequirement</a>
+  
+    <li><a href="./IndUser.html">IndUser</a>
+  
+    <li><a href="./IndUserQuestion.html">IndUserQuestion</a>
+  
+    <li><a href="./IndUserRequirement.html">IndUserRequirement</a>
+  
+    <li><a href="./IndustriesController.html">IndustriesController</a>
+  
+    <li><a href="./IndustriesHelper.html">IndustriesHelper</a>
+  
+    <li><a href="./Industry.html">Industry</a>
+  
+    <li><a href="./Organization.html">Organization</a>
+  
+    <li><a href="./OrganizationsController.html">OrganizationsController</a>
+  
+    <li><a href="./OrganizationsHelper.html">OrganizationsHelper</a>
+  
+    <li><a href="./PasswordResetsController.html">PasswordResetsController</a>
+  
+    <li><a href="./PasswordResetsHelper.html">PasswordResetsHelper</a>
+  
+    <li><a href="./Question.html">Question</a>
+  
+    <li><a href="./QuestionsController.html">QuestionsController</a>
+  
+    <li><a href="./Requirement.html">Requirement</a>
+  
+    <li><a href="./RequirementsController.html">RequirementsController</a>
+  
+    <li><a href="./RequirementsHelper.html">RequirementsHelper</a>
+  
+    <li><a href="./Response.html">Response</a>
+  
+    <li><a href="./ResponsesController.html">ResponsesController</a>
+  
+    <li><a href="./ResponsesHelper.html">ResponsesHelper</a>
+  
+    <li><a href="./Role.html">Role</a>
+  
+    <li><a href="./RoleAssignment.html">RoleAssignment</a>
+  
+    <li><a href="./RolesController.html">RolesController</a>
+  
+    <li><a href="./RolesHelper.html">RolesHelper</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserMailer.html">UserMailer</a>
+  
+    <li><a href="./UserQuestion.html">UserQuestion</a>
+  
+    <li><a href="./UserQuestionsController.html">UserQuestionsController</a>
+  
+    <li><a href="./UserQuestionsHelper.html">UserQuestionsHelper</a>
+  
+    <li><a href="./UserRequirement.html">UserRequirement</a>
+  
+    <li><a href="./UserRequirementsController.html">UserRequirementsController</a>
+  
+    <li><a href="./UserRequirementsHelper.html">UserRequirementsHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./VendorRequest.html">VendorRequest</a>
+  
+    <li><a href="./VendorRequestsController.html">VendorRequestsController</a>
+  
+    <li><a href="./VendorRequestsHelper.html">VendorRequestsHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class UserRequirementsController</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>POST /user_requirements POST /user_requirements.json</p>
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-constant">UserRequirement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_requirement</span>])
+  <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-string">&#39;position&#39;</span>)<span class="ruby-operator">+</span><span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">position</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">save!</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@user_requirement</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;User requirement was successfully created.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirement</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirement</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">destroy</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_requirements_url</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- destroy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- destroy-method -->
+
+    
+      <div id="method-i-download_xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_xml</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_xml-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">download_xml</span>
+    <span class="ruby-ivar">@user_requirements</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;position&#39;</span>)
+
+    <span class="ruby-identifier">send_data</span> <span class="ruby-ivar">@user_requirements</span>.<span class="ruby-identifier">to_xml</span>, <span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;UserRequirements.xml&#39;</span>, <span class="ruby-identifier">skip_types</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">except</span><span class="ruby-operator">:</span> [<span class="ruby-value">:created_at</span>, <span class="ruby-value">:updated_at</span>, <span class="ruby-value">:category_id</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- download_xml-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- download_xml-method -->
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /user_requirements/1/edit</p>
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:search</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">session</span>[<span class="ruby-value">:search</span>]) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">session</span>[<span class="ruby-value">:search</span>]<span class="ruby-operator">!=</span><span class="ruby-string">&quot;&quot;</span>))
+        <span class="ruby-ivar">@search</span> = <span class="ruby-constant">UserRequirement</span>.<span class="ruby-identifier">search</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">with</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+          <span class="ruby-identifier">fulltext</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+          <span class="ruby-identifier">order_by</span> <span class="ruby-value">:position</span>
+       <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@user_requirements</span> = <span class="ruby-ivar">@search</span>.<span class="ruby-identifier">results</span>
+  <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@user_requirements</span> = <span class="ruby-constant">UserRequirement</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;user_id = ?&#39;</span>, <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:position</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># index.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirements</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /user_requirements/new GET /user_requirements/new.json</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-constant">UserRequirement</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-string">&#39;position&#39;</span>)<span class="ruby-operator">+</span><span class="ruby-value">1</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">position</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirement</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-i-revert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revert</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="revert-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revert</span>
+  <span class="ruby-comment">#Take a modified user requirement and revert it to an exact copy of the source requirement</span>
+  <span class="ruby-ivar">@noticeMessage</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">userModified?</span>
+      <span class="ruby-ivar">@requirement</span> = <span class="ruby-constant">Requirement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">requirement_id</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@requirement</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">req_title</span> = <span class="ruby-ivar">@requirement</span>.<span class="ruby-identifier">reqTitle</span>
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">req_text</span> = <span class="ruby-ivar">@requirement</span>.<span class="ruby-identifier">reqText</span>
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">category_id</span> = <span class="ruby-ivar">@requirement</span>.<span class="ruby-identifier">category_id</span>
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">userModified</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">ind_user_requirements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">iur</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@ind_user_req</span> = <span class="ruby-constant">IndUserRequirement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">iur</span>.<span class="ruby-identifier">id</span>)
+          <span class="ruby-ivar">@ind_user_req</span>.<span class="ruby-identifier">delete</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@requirement</span>.<span class="ruby-identifier">ind_requirements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ir</span><span class="ruby-operator">|</span>
+          <span class="ruby-ivar">@iur</span> = <span class="ruby-constant">IndUserRequirement</span>.<span class="ruby-identifier">new</span>()
+          <span class="ruby-ivar">@iur</span>.<span class="ruby-identifier">user_requirement_id</span> = <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">id</span>
+          <span class="ruby-ivar">@iur</span>.<span class="ruby-identifier">industry_id</span> = <span class="ruby-identifier">ir</span>.<span class="ruby-identifier">industry_id</span>
+          <span class="ruby-ivar">@iur</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">save</span>
+          <span class="ruby-ivar">@noticeMessage</span> = <span class="ruby-string">&#39;User requirement was successfully reverted.&#39;</span>
+
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-ivar">@noticeMessage</span> = <span class="ruby-string">&#39;Unable to save user requirement&#39;</span>
+
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@noticeMessage</span> = <span class="ruby-string">&#39;Unable to save user requirement, original requirement could not be located&#39;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@user_requirement</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@noticeMessage</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- revert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- revert-method -->
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+
+
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># show.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirement</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>PUT /user_requirements/1 PUT /user_requirements/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+
+  <span class="ruby-ivar">@user_requirement</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">user_requirements</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+  <span class="ruby-comment">#TODO need to detect when industry list has been modified</span>
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_requirement</span>])
+
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@user_requirement</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;User requirement was successfully updated.&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user_requirement</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+      <div id="method-i-updateSort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">updateSort</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /user_requirements/1 GET /user_requirements/1.json</p>
+          
+
+          
+          <div class="method-source-code" id="updateSort-source">
+            <pre><span class="ruby-comment"># File controllers/user_requirements_controller.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">updateSort</span>
+
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:user_requirement</span>].<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">id</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">userReq</span> = <span class="ruby-constant">UserRequirement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">id</span>)
+    <span class="ruby-identifier">userReq</span>.<span class="ruby-identifier">position</span> = <span class="ruby-identifier">index</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+    <span class="ruby-identifier">userReq</span>.<span class="ruby-identifier">save!</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">nothing</span><span class="ruby-value">:true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- updateSort-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- updateSort-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

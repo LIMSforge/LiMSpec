@@ -1,0 +1,65 @@
+<h1>Questions</h1>
+<% if can? :review, Question %>
+    <h3> <%= link_to 'Review Submitted Questions', '/questions/review' %> </h3>
+<% end %>
+<% if (session[:showIndustry]) %>
+    <%= link_to "Show Questions Outside of My Industries", "/questions/change_industry_setting" %>
+<% else %>
+    <%= link_to "Show Only Questions Belonging to My Industries", "/questions/change_industry_setting" %>
+<% end %>
+<%=  form_tag questions_path, :method => 'get', :id=>'questions_filter' do %>
+<%= text_field_tag :search, session[:search] %>
+<%=  submit_tag "Search", :name =>nil %>
+<% end %>
+<%= form_tag change_selected_questions_path, {:method => :put} do |form| %>
+
+<br/>
+<table class="questTable">
+  <tr>
+    <th></th>
+    <th>Question Number</th>
+    <th>Question Title</th>
+    <th>Question Text</th>
+    <th class="wide">Industries</th>
+    <th class="wide">
+    <% if can? :download_xml, Question %>
+    <%= link_to 'Export XML', '/questions/getXML' %>
+    <% end %>
+    </th>
+    <th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td class="indicatorCell">
+    <% if !(question.copied_by_me?(current_user.id)) %>
+    <%= check_box_tag "question_ids[]", question.id %>
+    <% end %>
+    </td>
+    <td><%= question.questNumber %></td>
+    <td><%= question.qTitle %></td>
+    <td class="questText"><%= question.qText %></td>
+    <td><%= question.industryList %></td>
+    <td><%= link_to 'Show', question %>
+    <% if can? :edit, Question %>
+    <%= link_to 'Edit', edit_question_path(question) %>
+    <% end %>
+    <% if can? :destroy, Question %>
+    <%= link_to 'Delete', question, confirm: 'Are you sure?', method: :delete %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+    <% if can? :change_selected_questions, Question %>
+    <%= submit_tag "Select for Personal Collection", :name => "Select" %>
+    <% end %>
+
+<br/> <br/>
+<%=  paginate @questions %>
+<br />
+<% if can? :create, Question %>
+<%= link_to 'New Question', new_question_path %>
+<% end %>
+<% end %>

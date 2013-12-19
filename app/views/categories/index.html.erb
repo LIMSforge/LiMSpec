@@ -1,0 +1,28 @@
+<h1>Categories</h1>
+<br/>
+<table>
+  <tr>
+    <th>Category Name</th>
+    <th>Abbreviation</th>
+  </tr>
+<tbody id="sortable">
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.catName %></td>
+    <td><%= category.catAbbr %></td>
+    <td><%= link_to 'Show', category %></td>
+    <% if can? :edit, @category %>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <% end %>
+    <% if can? :delete, @category %>
+    <td><%= link_to 'Delete', category, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+<% if can? :create, @category %>
+<%= link_to 'New Category', new_category_path %>
+<% end %>

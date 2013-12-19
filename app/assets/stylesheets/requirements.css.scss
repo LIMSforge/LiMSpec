@@ -1,0 +1,52 @@
+// Place all the styles related to the Requirements controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+tr.reqRow {
+  vertical-align:text-top;
+
+}
+
+.catTag {
+  width: 100px;
+  overflow-wrap: normal;
+}
+
+.reqTable th {
+  width: 100px;
+}
+
+td.reqText {
+  width: 350px;
+}
+
+th.reqText {
+  width: 350px;
+}
+
+.reqTable th.wide {
+  width: 200px;
+}
+
+tr.reqRow td{
+  width: 100px;
+}
+
+tr.reqRow td.indicatorCell {
+  width: 45px;
+}
+
+th.indicatorCell {
+  width: 45px;
+}
+
+
+.reqTable {
+  width: 900px;
+  table-layout: fixed;
+}
+
+
+
+
+

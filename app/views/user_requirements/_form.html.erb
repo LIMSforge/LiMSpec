@@ -1,0 +1,36 @@
+<%= form_for(@user_requirement) do |f| %>
+  <% if @user_requirement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_requirement.errors.count, "error") %> prohibited this user_requirement from being saved:</h2>
+
+      <ul>
+      <% @user_requirement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <br/>
+    <div class="field"><%= f.label "Category"%><%=  collection_select :user_requirement, :category_id, Category.all, :id, :catName, :include_blank=> true %></div>
+        <div class="field">
+            <%= f.label "Title" %><br />
+            <%= f.text_field :req_title %>
+        </div>
+        <div class="field">
+                    <%= f.label "Content" %><br />
+                    <%= f.text_area :req_text %>
+        </div>
+    <div class="field">
+        <%=  label_tag "Industries" %>  <br/>
+            <% Industry.all.each do |industry| %>
+            <div>
+              <%=  hidden_field_tag "user_requirement[industry_ids][]", nil %>
+              <%=  check_box_tag "user_requirement[industry_ids][]", industry.id, @user_requirement.industries.include?(industry) %>
+              <%=  label_tag dom_id(industry), industry.indName %>
+            </div>
+            <% end %>
+          </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

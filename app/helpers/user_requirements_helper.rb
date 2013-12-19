@@ -1,0 +1,2 @@
+module UserRequirementsHelper
+end

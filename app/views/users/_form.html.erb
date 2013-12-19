@@ -1,0 +1,103 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <br/>
+    <div class="field">
+       <%= f.label :name %>
+       <%= f.text_field :name %>
+    </div>
+    <div class="field">
+        <%= f.label "First Name" %>
+        <%= f.text_field :firstname %>
+    </div>
+    <div class="field">
+        <%= f.label "Last Name" %>
+        <%= f.text_field :lastname %>
+    </div>
+    <div class="field">
+            <%= f.label :company %>
+            <%= f.text_field :company %>
+        </div>
+    <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </div>
+    <div class="field">
+            <%= f.label "Work Phone" %>
+            <%= f.text_field :workPhone %>
+        </div>
+    <div class="field">
+            <%= f.label "Please email me important system notifications:" %>
+            <%= f.check_box :emailSystemNotify %>
+    </div>
+    <div class="field">
+                <%= f.label "Please email me with items of interest:" %>
+                <%= f.check_box :emailGeneral %>
+    </div>
+    <br/>
+   <a href='/app_settings/edit'>Application Settings</a>
+   <br/><br/>
+
+  <% if can? :administer, @role %>
+    <div class="field">
+      <% Role.all.each do |role| %>
+        <div>
+          <%=  hidden_field_tag "user[role_ids][]", nil %>
+          <%=  check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+          <%=  label_tag dom_id(role), role.roleName %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+    <div class="field">
+        <%=  label_tag "Industries" %>  <br/>
+            <% Industry.all.each do |industry| %>
+            <div>
+              <%=  hidden_field_tag "user[industry_ids][]", nil %>
+              <%=  check_box_tag "user[industry_ids][]", industry.id, @user.industries.include?(industry) %>
+              <%=  label_tag dom_id(industry), industry.indName %>
+            </div>
+            <% end %>
+          </div>
+    <% if @user == current_user %>
+    <p><strong>Add another authentication method to your account</strong></p>
+    <div class="auth_providers">
+    <% if @user.authentications.find_by_provider('linkedin').nil? %>
+        <a href="/auth/linkedin" class="auth_provider">
+              <%= image_tag "authButtons/linkedin_64.png", size: "64x64", alt: "LinkedIn" %>
+              LinkedIn
+            </a>
+    <% end %>
+      <% if @user.authentications.find_by_provider('google').nil? %>
+        <a href="/auth/google" class="auth_provider">
+          <%= image_tag "authButtons/google_64.png", size: "64x64", alt: "Google" %>
+          Google
+        </a>
+      <% end %>
+      <% if @user.authentications.find_by_provider('twitter').nil? %>
+        <a href="/auth/twitter" class="auth_provider">
+              <%= image_tag "authButtons/twitter_64.png", size: "64x64", alt: "Twitter" %>
+              Twitter
+        </a>
+       <% end %>
+      <br/>
+      <% if @user.authentications.find_by_provider('identity').nil? %>
+      <%=  link_to "Create a local account", new_identity_path %>
+      <% end %>
+      </div>
+
+  <% end %>
+
+  <div class="actions">
+    <%= submit_tag 'Submit', :name => 'user[no_password]' %>
+  </div>
+<% end %>

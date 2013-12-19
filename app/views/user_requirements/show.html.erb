@@ -1,0 +1,32 @@
+<h1>My Requirement</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Category: </b>
+  <%if !@user_requirement.category_id.nil? %>
+  <%= @user_requirement.category.catName %>
+  <% else %>
+  Not defined
+  <% end %>
+</p>
+<p>
+  <b>Title:</b>
+  <%= @user_requirement.req_title %>
+</p>
+
+<p>
+  <b>Requirement:</b>
+  <%= @user_requirement.req_text %>
+</p>
+<div>
+  <p><b>Industries</b></p>
+<ul>
+
+<% @user_requirement.industries.find_each do |industry| %>
+        <li> <%=  industry.indName%>  </li>
+<% end %>
+</ul>
+</div>
+<%= link_to 'Edit', edit_user_requirement_path(@user_requirement) %> |
+<%= link_to 'Back', user_requirements_path %>

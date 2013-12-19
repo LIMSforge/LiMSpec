@@ -1,0 +1,28 @@
+<h1>Industries</h1>
+
+<table>
+  <tr>
+    <th>Industry Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @industries.each do |industry| %>
+  <tr>
+    <td><%= industry.indName %></td>
+    <td><%= link_to 'Show', industry %></td>
+    <%if can? :edit, @industry %>
+    <td><%= link_to 'Edit', edit_industry_path(industry) %></td>
+        <% end %>
+    <% if can? :delete, @industry %>
+    <td><%= link_to 'Delete', industry, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if can? :create, @industry %>
+<%= link_to 'New Industry', new_industry_path %>
+<% end %>

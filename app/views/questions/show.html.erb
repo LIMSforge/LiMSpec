@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<% if !(@question.source_id.nil?) %>
+<p><b>Question is a private copy</b></p>
+<% end %>
+<p>
+  <b>Title:</b>
+  <%= @question.qTitle %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @question.qText %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @question.status %>
+</p>
+
+<% if can? :edit, @question %>
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<% end %>
+<% if can? :create, Question %>
+<%= link_to 'New ', new_question_path %> |
+<% end %>
+<% if session['review'].nil? or session['review'] == false %>
+<%= link_to 'Back', questions_path %>
+<% else %>
+<%= link_to 'Back', '/questions/review' %>
+<% end %>

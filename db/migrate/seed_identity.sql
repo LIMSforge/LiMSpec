@@ -1,0 +1,1 @@
+INSERT INTO limspecProdDB.identities (id, name, email, password_digest) VALUES (1, 'Admin','dummy@limspec.com','$2a$10$ms5bU4qIfvLwpM9mnF9WTeOexRII7cVHwwBRPu4q3OmdGfPlublb.');
