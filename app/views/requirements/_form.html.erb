@@ -10,44 +10,51 @@
       </ul>
     </div>
   <% end %>
-    <% if !(@requirement.source_id.nil?) %>
-    <p><b>Requirement is a private copy</b></p>
-    <% end %>
-  <span>
-  <div class = "field">
+  <div class = "row">
+    <div class="small-8 columns">
      <%= f.label "Category"%><%=  collection_select :requirement, :category_id, Category.all, :id, :catName, :include_blank=> true %>
-  </div>
+    </div>
   <% if can? :approve, @requirement %>
-  <div class = "field" id="reqStatusField">
+  <div class = "small-8 columns" id="reqStatusField">
     <%= f.label "Status" %><%= select "requirement", "status", %w[Public Rejected Submitted], :include_blank=> true %>
   </div>
   <% end %>
-  <div class="field">
+</div>
+ <div class="row">
+  <div class="small-12 columns">
     <%= f.label "Title" %><br />
     <%= f.text_field :reqTitle %>
-  </div>  </span>
+  </div>
+ </div>
+ <div class="row">
     <% if can? :create, @requirement %>
            <% if (@requirement.status == 'Private') and (@requirement.source_id.nil?) %>
-                <div class ="field">
+                <div class ="small-14 columns">
                     <%=  check_box_tag "Submit_for_Approval"%> Submit for Approval
                 </div>
            <% end %>
           <% end %>
-  <div class="field">
+ </div>
+ <div class="row">
+  <div class="small-12 columns">
     <%= f.label "Requirement Text" %><br />
     <%= f.text_area :reqText %>
   </div>
-    <div class="field">
-    <%=  label_tag "Industries" %>  <br/>
+ </div>
+  <div class="row">
+    <div class="small-12 columns">
+    <h4>Industries</h4> <br/>
         <% Industry.all.each do |industry| %>
-        <div>
           <%=  hidden_field_tag "requirement[industry_ids][]", nil %>
-          <%=  check_box_tag "requirement[industry_ids][]", industry.id, @requirement.industries.include?(industry) %>
-          <%=  label_tag dom_id(industry), industry.indName %>
-        </div>
+          <label for=" <%=dom_id(industry) %>" >
+            <%=  check_box_tag "requirement[industry_ids][]", industry.id, @requirement.industries.include?(industry) %>&nbsp<%= industry.indName %>
+          </label>
         <% end %>
       </div>
+    </div>
+  <div class="row">
   <div class="actions">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>

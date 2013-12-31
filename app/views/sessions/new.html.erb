@@ -38,13 +38,17 @@
   <%=  link_to "Create an account", new_identity_path %> or login below.
 </p>
   <%= form_tag "/auth/identity/callback" do %>
-    <div class="field">
+    <div class="row">
+      <div class="small-8 columns">
       <%= label_tag :auth_key, "Email" %><br>
       <%= text_field_tag :auth_key %>
     </div>
-    <div class="field">
+    </div>
+    <div class="row">
+         <div class="small-8 columns">
       <%= label_tag :password %><br>
       <%= password_field_tag :password %>
+    </div>
     </div>
     <p><%= link_to "Forgotten password?", new_password_reset_path %> </p>
     <div class="actions"><%= submit_tag "Login" %></div>

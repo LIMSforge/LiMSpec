@@ -1,6 +1,10 @@
 <%=  form_tag user_requirements_path, :method => 'get', :id=>'user_requirements_filter' do %>
-<%= text_field_tag :search, session[:search] %>
+    <div class="row">
+    <div class="small-8 columns">
+    <%= text_field_tag :search, session[:search] %>
 <%=  submit_tag "Search", :name =>nil %>
+    </div>
+    </div>
 <% end %>
 <%=  form_tag user_requirements_path, :method => 'put' do %>
 <table class="reqTable">
@@ -24,7 +28,7 @@
   <tr class = "reqRow" id="user_requirement_<%= userRequirement.id%>" >
     <td class="dragHandle"><%=image_tag("drag-handle.png") %></td>
     <td><%= userRequirement.req_title%></td>
-    <td class='reqText'><%= userRequirement.req_text %></td>
+    <td class='reqText'><%= userRequirement.truncReqText %></td>
     <td><%if !userRequirement.category_id.nil? %> <%=  userRequirement.category.catName %> <% end %></td>
     <td><%= userRequirement.industryList %>
     </td>

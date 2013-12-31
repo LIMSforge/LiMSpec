@@ -1,6 +1,10 @@
 <%=  form_tag user_questions_path, :method => 'get', :id=>'user_questions_filter' do %>
-<%= text_field_tag :search, session[:search] %>
+<div class="row">
+<div class="small-8 columns">
+    <%= text_field_tag :search, session[:search] %>
 <%=  submit_tag "Search", :name =>nil %>
+</div>
+</div>
 <% end %>
 
 <table class="reqTable">
@@ -36,4 +40,4 @@
   </tbody>
 </table>
 <br/>
-<button type="button" id="updateQSortButton">Update Sort Order</button>
+<a href="#" id="updateQSortButton" class="button small">Update Sort Order</a>

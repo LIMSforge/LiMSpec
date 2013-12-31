@@ -12,21 +12,29 @@
   <% end %>
   <br/>
   <br/>
-  <div class = "field">
+  <div class="row">
+  <div class = "small-8 columns">
     <%= f.label "Title"%><%= f.text_field :qTitle %><br/>
+ </div></div>
+  <div class="row">
+  <div class="small-12 columns">
     <%= f.text_area :qText %><br/>
   </div>
-    <div class="field">
-            <%=  label_tag "Industries" %>  <br/>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+            <h4>Industries</h4> <br/>
                 <% Industry.all.each do |industry| %>
-                <div>
                   <%=  hidden_field_tag "user_question[industry_ids][]", nil %>
-                  <%=  check_box_tag "user_question[industry_ids][]", industry.id, @user_question.industries.include?(industry) %>
-                  <%=  label_tag dom_id(industry), industry.indName %>
-                </div>
+                <label for=" <%=dom_id(industry) %>" >
+                  <%=  check_box_tag "user_question[industry_ids][]", industry.id, @user_question.industries.include?(industry) %>&nbsp<%= industry.indName %>
+                </label>
                 <% end %>
               </div>
+  </div>
+  <div class="row">
   <div class="actions">
     <%= f.submit %>
+  </div>
   </div>
 <% end %>

@@ -11,63 +11,84 @@
     </div>
     <% end %>
     <br/>
-    <div class="field">
+    <div class="row">
+      <div class="small-12 columns">
        <%= f.label :name %>
        <%= f.text_field :name %>
     </div>
-    <div class="field">
+    </div>
+    <div class="row">
+     <div class="small-12 columns">
         <%= f.label "First Name" %>
         <%= f.text_field :firstname %>
     </div>
-    <div class="field">
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
         <%= f.label "Last Name" %>
         <%= f.text_field :lastname %>
     </div>
-    <div class="field">
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
             <%= f.label :company %>
             <%= f.text_field :company %>
         </div>
-    <div class="field">
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
         <%= f.label :email %>
         <%= f.text_field :email %>
+     </div>
     </div>
-    <div class="field">
+    <div class="row">
+      <div class="small-12 columns">
             <%= f.label "Work Phone" %>
             <%= f.text_field :workPhone %>
         </div>
-    <div class="field">
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
             <%= f.label "Please email me important system notifications:" %>
             <%= f.check_box :emailSystemNotify %>
+      </div>
     </div>
-    <div class="field">
+    <div class="row">
+      <div class="small-8 columns">
                 <%= f.label "Please email me with items of interest:" %>
                 <%= f.check_box :emailGeneral %>
     </div>
-    <br/>
+    </div>
    <a href='/app_settings/edit'>Application Settings</a>
    <br/><br/>
 
   <% if can? :administer, @role %>
-    <div class="field">
+    <div class="row">
+      <div class="small-8 columns">
+        <h4>Roles</h4>
       <% Role.all.each do |role| %>
-        <div>
+
           <%=  hidden_field_tag "user[role_ids][]", nil %>
-          <%=  check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-          <%=  label_tag dom_id(role), role.roleName %>
-        </div>
+          <label for="<%= dom_id(role) %>">
+          <%=  check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %><%= role.roleName %>
+          </label>
       <% end %>
+      </div>
     </div>
   <% end %>
-    <div class="field">
-        <%=  label_tag "Industries" %>  <br/>
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <h4>Industries</h4> <br/>
             <% Industry.all.each do |industry| %>
-            <div>
               <%=  hidden_field_tag "user[industry_ids][]", nil %>
+              <label for=" <%=dom_id(industry) %>" >
               <%=  check_box_tag "user[industry_ids][]", industry.id, @user.industries.include?(industry) %>
-              <%=  label_tag dom_id(industry), industry.indName %>
-            </div>
+              <%= industry.indName %>
+              </label>
             <% end %>
           </div>
+         </div>
     <% if @user == current_user %>
     <p><strong>Add another authentication method to your account</strong></p>
     <div class="auth_providers">
