@@ -66,10 +66,10 @@ Limspec::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.action_mailer.default_url_options = {host: "test.limspec.com"}
   config.action_mailer.smtp_settings = {
-      :address => "limspec.llx.local",
+      :address => "limspec.lablynx.com",
       :port => 25,
       :domain => 'limspec.com',
-      :user_name => ENV["EMAIL"],
-      :password => ENV["PASSWORD"]
+      #:user_name => ENV["EMAIL"],
+      #:password => ENV["PASSWORD"]
   }
 end

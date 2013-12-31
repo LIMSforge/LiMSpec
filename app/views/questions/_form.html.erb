@@ -1,4 +1,4 @@
-<%= form_for(@question) do |f| %>
+<%= form_for @question, html:{class:"custom"} do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -11,28 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="row">
+  <div class="small-8 columns">
     <%= f.label "Title" %><br />
     <%= f.text_field :qTitle %>
   </div>
+  </div>
     <% if can? :approve, @question %>
-      <div class = "field" id="qStatusField">
+      <div class = "row" id="qStatusField">
+        <div class = "small-8 columns">
         <%= f.label "Status" %><%= select "question", "status", %w[Public Private Submitted], :include_blank=> true %>
       </div>
+      </div>
       <% end %>
-  <div class="field">
+  <div class="row">
+  <div class="small-12 rows">
     <%= f.label "Question" %><br />
     <%= f.text_area :qText %>
   </div>
-    <div class="field">
-        <%=  label_tag "Industries" %>  <br/>
+  </div>
+        <h4>Industries</h4>  <br/>
+    <div class="row">
+        <div class="small-12 columns">
             <% Industry.all.each do |industry| %>
-            <div>
               <%=  hidden_field_tag "question[industry_ids][]", nil %>
-              <%=  check_box_tag "question[industry_ids][]", industry.id, @question.industries.include?(industry) %>
-              <%=  label_tag dom_id(industry), industry.indName %>
-            </div>
-            <% end %>
+              <label for=" <%=dom_id(industry) %>" >
+                <%=  check_box_tag "question[industry_ids][]", industry.id, @question.industries.include?(industry) %>
+                <%= industry.indName %>
+              </label>
+          <% end %>
+
+         </div>
           </div>
   <div class="actions">
     <%= f.submit %>

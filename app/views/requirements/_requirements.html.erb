@@ -1,39 +1,45 @@
 <%=  form_tag requirements_path, :method => 'get', :id=>'requirements_filter' do %>
-<%= text_field_tag :search, session[:search] %>
-<%=  submit_tag "Search", :name =>nil %>
+<div class="row">
+  <div class="small-5 columns">
+    <%= text_field_tag :search, session[:search] %>
+    <%=  submit_tag "Search", :name =>nil %>
+  </div>
+</div>
+
 
 <% end %>
 <%= form_tag change_selected_requirements_path, :method => :put do |form| %>
-<table class="reqTable">
+<table>
   <thead>
   <tr>
-    <th class="indicatorCell"></th>
-    <th>Requirement Number</th>
-    <th>Title</th>
-    <th class= "reqText">Requirement Text</th>
-    <th class= "wide"><%= select_tag :catSearch, options_from_collection_for_select(Category.all, :catName, :catName, session[:catSearch]), prompt: 'Category', class: 'catTag' %>
+    <th>&nbsp</th>
+    <th><h6>Requirement</h6></th>
+    <th><h6>Requirement</h6></th>
+    <th><h6>Requirement Text</h6></th>
+    <th><%= select_tag :catSearch, options_from_collection_for_select(Category.all, :catName, :catName, session[:catSearch]), prompt: 'Category', class: 'catTag' %>
     <%=  submit_tag "Filter", name: nil, formaction: '/requirements/', formmethod: 'get'%></th>
-    <th class= "wide">Industries</th>
-    <th class= "wide">
+    <th><h6>Industries</h6></th>
+    <th>
     <% if can? :download_xml, Requirement %>
     <%=  link_to 'Export XML', '/requirements/getXML' %>
     <% end %></th>
   </tr>
-  <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
-  </thead>
+</thead>
+<tbody>
 <% @requirements.each do |requirement| %>
-  <tr class = "reqRow">
-    <td class="indicatorCell">
+  <tr>
+    <td>
       <% if (can? :change_selected_requirements, Requirement) && !(requirement.copied_by_me?(current_user.id))%>
       <%= check_box_tag "requirement_ids[]", requirement.id %>
+      <% else %>
+      &nbsp
       <% end %>
     </td>
-    <td><%= requirement.reqNumber %></td>
-    <td><%= requirement.reqTitle%></td>
-    <td class='reqText'><%= requirement.reqText %></td>
-    <td><%=  requirement.catName %> </td>
-    <td><%= requirement.industryList %>
-    </td>
+    <td><p><%= requirement.reqNumber %>&nbsp<%= requirement.reqTitle%></p></td>
+    <td><p><%= requirement.reqNumber %>&nbsp<%= requirement.reqTitle%></p></td>
+    <td><p><%= requirement.truncReqText %></p></td>
+    <td><p><%=  requirement.catName %></p></td>
+    <td><p><%= requirement.industryList %></p></td>
     <td><%= link_to 'Show', requirement %>
     <% if can? :edit, requirement %>
     <%= link_to 'Edit', edit_requirement_path(requirement) %>
@@ -44,6 +50,7 @@
     </td>
   </tr>
 <% end %>
+</tbody>
 </table>
     <% if can? :change_selected_requirements, Requirement %>
     <%= submit_tag "Select for Personal Collection", :name => "Select" %>

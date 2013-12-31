@@ -55,6 +55,15 @@ class Requirement < ActiveRecord::Base
       joins(:user_requirements).where("user_id = ?", user_id)
   end
 
+  def truncReqText
+    n = 10
+    if self.reqText.split.size > n
+      self.reqText.split[0...n].join(' ') << '...'
+    else
+      self.reqText
+    end
+  end
+
   def catName
     if self.category.nil?
       "Not Defined"

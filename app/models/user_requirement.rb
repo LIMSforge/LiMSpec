@@ -33,6 +33,14 @@ class UserRequirement < ActiveRecord::Base
       self.industries.map {|industry| industry.indName}.join(", ")
   end
 
+  def truncReqText
+      n = 10
+      if self.req_text.split.size > n
+        self.req_text.split[0...n].join(' ') << '...'
+      else
+        self.req_text
+      end
+  end
   def reqNumber
       if (self.category.nil? || self.category.catAbbr.nil?)
         "R" + "-" + self.id.to_s

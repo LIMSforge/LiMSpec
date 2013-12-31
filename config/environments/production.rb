@@ -69,7 +69,7 @@ Limspec::Application.configure do
         :address => "limspec.lablynx.com",
         :port => 25,
         :domain => 'limspec.com',
-        :user_name => ENV["EMAIL"],
-        :password => ENV["PASSWORD"]
+        #:user_name => ENV["EMAIL"],
+        #:password => ENV["PASSWORD"]
     }
 end

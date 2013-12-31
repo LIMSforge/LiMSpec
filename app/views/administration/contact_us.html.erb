@@ -1,15 +1,21 @@
-<h1>Contact</h1>
 <br/>
 <br/>
-<h3>Contact the LiMSpec Team</h3>
+
+<fieldset>
+<legend>Contact the LiMSpec Team</legend>
 <%= form_tag contact_path, method: :post do %>
-  <div class="field">
+  <div class="row">
+  <div class="small-8 columns">
     <%=  label_tag :subject %>
     <%=  text_field_tag :subject, params[:subtext] %>
   </div>
-  <div class = "field">
+  </div>
+  <div class = "row">
+  <div class = "small-12 columns">
     <%= label_tag :message %><br/>
     <%= text_area_tag :message, params[:message], size: "55 x 10" %>
   </div>
+  </div>
   <div class="actions"><%= submit_tag "Send Message" %></div>
 <% end %>
+</fieldset>

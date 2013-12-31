@@ -1,4 +1,4 @@
-<h1>New Account</h1>
+
 
 <%= form_tag "/auth/identity/register" do %>
   <% if @identity && @identity.errors.any? %>
@@ -11,21 +11,32 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= label_tag :name %><br>
+  <fieldset>
+    <legend>New Account</legend>
+  <div class="row">
+  <div class="small-8 columns">
+    <%= label_tag :name %> <br/>
     <%= text_field_tag :name, @identity.try(:name) %>
   </div>
-  <div class="field">
+  </div>
+  <div class="row">
+  <div class="small-8 columns">
     <%= label_tag :email %><br>
     <%= text_field_tag :email, @identity.try(:email) %>
   </div>
-  <div class="field">
+  </div>
+  <div class="row">
+    <div class="small-8 columns">
     <%= label_tag :password %><br>
     <%= password_field_tag :password %>
   </div>
-  <div class="field">
+  </div>
+  <div class="row">
+    <div class="small-8 columns">
     <%= label_tag :password_confirmation %><br>
     <%= password_field_tag :password_confirmation %>
   </div>
+  </div>
+  </fieldset>
   <div class="actions"><%= submit_tag "Register" %></div>
 <% end %>
