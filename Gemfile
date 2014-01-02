@@ -44,7 +44,7 @@ group :development do
 
   gem "railroady"
   gem "sunspot_solr"
-
+  gem "seed_dump", "~> 0.5.3"
 
 end
 
