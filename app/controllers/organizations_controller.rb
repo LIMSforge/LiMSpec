@@ -10,5 +10,30 @@ class OrganizationsController < InheritedResources::Base
              format.json { render json: @organization.errors, status: :unprocessable_entity }
            end
          end
-   end
+  end
+
+  def destroy
+
+    Organization.find(params[:id]).destroy
+    redirect_to organizations_path
+
+  end
+
+  def index
+    respond_to do |format|
+    format.js
+    format.html # index.html.erb
+    format.json { render json: @organizations }
+  end
+  end
+  def new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @organization }
+    end
+  end
+
+  def update
+
+  end
 end
