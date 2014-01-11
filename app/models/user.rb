@@ -13,6 +13,8 @@ class User < ActiveRecord::Base   # OmniAuth::Identity::Models::ActiveRecord
   has_many :ind_users
   has_many :industries, through: :ind_users
   has_one :app_setting
+  belongs_to :organization
+  has_many :projects, through: :project_users
   accepts_nested_attributes_for :app_setting, :role_assignments, :ind_users
 
 

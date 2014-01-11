@@ -2,12 +2,7 @@
 <br/>
 <br/>
 <fieldset>
-  <legend>Administration</legend>
-<h5><%= link_to "Manage Users", users_path %></h5><br/>
-<hr/>
-<h5><%= link_to "Manage External Applications", oauth_applications_path %></h5><br/>
-<hr/>
-<h3>Send a System Announcement</h3>
+  <legend>Send Announcement</legend>
 <%= form_tag system_announcement_path, method: :post do %>
   <div class="row">
     <div class="small-8 columns">

@@ -2,7 +2,7 @@
 class AdministrationController < ApplicationController
   skip_before_filter :require_auth
 
-  def display
+  def create_system_announcement
       if (current_user && current_user.role?(:Administrator))
         respond_to do |format|
           format.html
