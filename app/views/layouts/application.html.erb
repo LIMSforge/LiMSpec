@@ -132,6 +132,7 @@
               <%if current_user%>
                 <a href="http://www.limswiki.org/index.php/Limspec">About</a> |
                 <%=  link_to "Contact", contact_us_path %> |
+                <%=  link_to "Support", 'http://www.limsforum.com' %> |
                 <%=  link_to "Logout", logout_path %> |
                 <%=  link_to "Account", edit_user_path(current_user)  %>
               <%end%> </p>
