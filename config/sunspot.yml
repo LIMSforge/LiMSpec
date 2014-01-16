@@ -1,16 +1,16 @@
 production:
   solr:
     hostname: localhost
-    port: 8080
-    path: /solr/production
+    port: 8982
+    path: solr
     log_level: WARNING
 
 
 staging:
   solr:
     hostname: localhost
-    port: 8080
-    path: /solr/test
+    port: 8982
+    path: solr
     log_level: WARNING
 
 development:
