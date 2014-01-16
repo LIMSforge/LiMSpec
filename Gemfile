@@ -52,7 +52,6 @@ group :production do
   gem 'libv8', '~> 3.11.8'
   gem 'therubyracer'
   gem 'mysql2'
-  gem 'sunspot_solr'
 end
 
 group :test do
