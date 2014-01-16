@@ -14,7 +14,7 @@
     <th>Title</th>
     <th class= "reqText">Requirement Text</th>
     <th class= "wide"><%= select_tag :catSearch, options_from_collection_for_select(Category.all, :catName, :catName, session[:catSearch]), prompt: 'Category', class: 'catTag' %>
-    <%=  submit_tag "Filter", :name=> nil %></th>
+    <%=  submit_tag "Filter", :name=> nil, formaction: '/user_requirements/', formmethod: 'get' %></th>
     <th class= "wide">Industries</th>
     <th class= "wide">
     <% if can? :download_xml, UserRequirement %>
