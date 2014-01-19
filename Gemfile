@@ -39,7 +39,7 @@ gem 'omniauth-twitter'
 
 gem 'csv_builder'
 gem 'rubyzip', '~>0.9.9'
-gem "sunspot_solr"
+
 group :development do
 
   gem "railroady"
@@ -52,7 +52,7 @@ group :production do
   gem 'libv8', '~> 3.11.8'
   gem 'therubyracer'
   gem 'mysql2'
-
+  gem 'sunspot_solr'
 end
 
 group :test do
