@@ -2,7 +2,7 @@ production:
   solr:
     hostname: localhost
     port: 8983
-    path: /solr/production
+    path: /solr/limspecProduction
     log_level: WARNING
 
 
@@ -10,7 +10,7 @@ staging:
   solr:
     hostname: localhost
     port: 8982
-    path: /solr/test
+    path: /solr/limspecStaging
     log_level: WARNING
 
 development:
