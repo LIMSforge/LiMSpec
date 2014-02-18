@@ -12,6 +12,7 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :user_questions
 
   attr_accessible :qText, :qTitle, :status, :industry_ids, :user_id, :source_id, :questNumber
+
   searchable do
      text :qText, :qTitle
   end
