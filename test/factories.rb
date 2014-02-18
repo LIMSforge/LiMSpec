@@ -156,4 +156,14 @@ end
 factory :organization do
 
 end
+
+factory :projects_users do
+
+end
+
+factory :project do
+
+
+
+end
 end
