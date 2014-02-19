@@ -17,6 +17,8 @@ class Ability
 
     if  current_user.role?(:Editor)
 
+         can :manage, Product
+
          can :read, :all
 
          cannot :read, User
@@ -40,6 +42,7 @@ class Ability
          can :download_xml, Question
 
          can :getDelFile, Question
+
 
 
    elsif   current_user.role?(:Administrator)
