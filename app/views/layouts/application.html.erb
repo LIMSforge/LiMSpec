@@ -21,12 +21,11 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+<body>
   <div class="panel show-for-medium-up">
   <%=image_tag('NewLimspec_Logo.png') %>
   </div>
   <% if current_user %>
-
       <nav class="top-bar" data-topbar>
       <ul class="title-area">
       <li class="name"></li>
@@ -36,7 +35,24 @@
            <ul class="left">
                <% if current_user.role?(:Administrator) %>
                  <li class="divider"></li>
-                 <li><%= link_to "Administration", administer_path %></li>
+                 <li><a href="#" data-dropdown="adDrop">Administration</a></li>
+                 <ul id="adDrop" class="f-dropdown" data-dropdown-content>
+                   <li>
+                     <%= link_to "Manage Users", users_path %>
+                   </li>
+                   <li>
+                     <%= link_to "External Apps", oauth_applications_path %>
+                   </li>
+                   <li>
+                     <%= link_to "Manage Categories", categories_path %>
+                   </li>
+                   <li>
+                     <%= link_to "Manage Industries", industries_path %>
+                   </li>
+                   <li>
+                     <%= link_to "System Announcement", create_system_announcement_path %>
+                   </li>
+                 </ul>
                  <li class="divider"></li>
              <% end %>
 
@@ -83,26 +99,19 @@
                   </ul>
              </li>
              <li class="divider"></li>
-             <% if current_user.role?(:Administrator) %>
-             <li>
-               <%= link_to "Industries", industries_path %>
-             </li>
-             <li class="divider"></li>
-             <% end %>
-             <% if current_user.role?(:Administrator) %>
-             <li>
-               <%= link_to "Categories", categories_path %>
-             </li>
-             <li class="divider"></li>
-             <% end %>
-             <li><a href="#" data-dropdown="lspecDrop">Generate LiMSpec</a>
+             <li><a href="#" data-dropdown="lspecDrop">RFP Process</a>
              <ul id="lspecDrop" class="f-dropdown" data-dropdown-content>
                <li>
-                 <%= link_to "Public Items", 'vendorRequest/createPublicRequirementDoc.odt' %>
+                 <%= link_to "LiMSpec - Public Items", 'vendorRequest/createPublicRequirementDoc.odt' %>
                </li>
              <li>
-               <%= link_to "My Items", 'vendorRequest/createPrivateRequirementDoc.odt' %>
+               <%= link_to "LiMSpec - My Items", 'vendorRequest/createPrivateRequirementDoc.odt' %>
              </li>
+              <% if can? :read, Product %>
+               <li>
+                 <%= link_to "Product Management", products_path %>
+               </li>
+              <% end %>
              </ul>
              </li>
              <li class="divider"></li>

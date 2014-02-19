@@ -1,5 +1,12 @@
 Limspec::Application.routes.draw do
 
+
+  resources :products
+
+
+  resources :projects
+
+
   resources :responses
 
 
@@ -18,6 +25,8 @@ Limspec::Application.routes.draw do
   post "administration/contact", :as => "contact"
 
   match "administer", :to => "administration#display"
+
+  match "create_system_announcement", :to => "administration#create_system_announcement"
 
   match "contact_us", :to => "administration#contact_us"
 
