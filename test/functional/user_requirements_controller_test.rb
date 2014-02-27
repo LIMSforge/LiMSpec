@@ -157,6 +157,8 @@ class UserRequirementsControllerTest < ActionController::TestCase
     @industry = create(:industry)
     @indUR = create(:ind_user_requirement, user_requirement: @user_requirement, industry: @industry)
 
+    #update the requirement here, then do the reversion
+
     get :revert, id: @user_requirement
     @user_requirement = UserRequirement.find(@user_requirement.id)
 
@@ -165,6 +167,12 @@ class UserRequirementsControllerTest < ActionController::TestCase
     assert_equal(@user_requirement.req_text, @requirement.reqText)
     assert_equal(@user_requirement.req_title, @requirement.reqTitle)
   end
+
+  test "Reverting a user requirement changes the text back to the correct version of the source requirement" do
+    flunk("Not yet implemented")
+  end
+
+
 
   test "New user requirements should have default sort order defined" do
      login_reader
