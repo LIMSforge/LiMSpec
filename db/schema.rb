@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218061832) do
+ActiveRecord::Schema.define(:version => 20140227032359) do
 
   create_table "app_settings", :force => true do |t|
     t.integer  "user_id"
@@ -131,12 +131,19 @@ ActiveRecord::Schema.define(:version => 20140218061832) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "product_classes", :force => true do |t|
+    t.string   "className"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "vendor"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "productClass"
   end
 
   create_table "project_organizations", :force => true do |t|
@@ -169,6 +176,8 @@ ActiveRecord::Schema.define(:version => 20140218061832) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "source_id"
+    t.integer  "version"
+    t.boolean  "active"
   end
 
   create_table "requirements", :force => true do |t|
@@ -180,6 +189,8 @@ ActiveRecord::Schema.define(:version => 20140218061832) do
     t.string   "status"
     t.integer  "source_id"
     t.integer  "sortOrder"
+    t.integer  "version"
+    t.boolean  "active"
   end
 
   create_table "responses", :force => true do |t|
@@ -212,6 +223,7 @@ ActiveRecord::Schema.define(:version => 20140218061832) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "question_id"
+    t.integer  "version"
   end
 
   create_table "user_requirements", :force => true do |t|
@@ -225,6 +237,7 @@ ActiveRecord::Schema.define(:version => 20140218061832) do
     t.boolean  "userModified"
     t.integer  "category_id"
     t.integer  "position"
+    t.integer  "version"
   end
 
   create_table "users", :force => true do |t|

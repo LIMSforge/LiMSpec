@@ -1,6 +1,9 @@
 Limspec::Application.routes.draw do
 
 
+  resources :product_classes
+
+
   resources :products
 
 

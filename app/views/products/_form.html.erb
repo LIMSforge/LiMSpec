@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="row">
+    <div class="large-4 columns">
+      <%= f.label "Product Class" %><%=  collection_select :product, :productClass, ProductClass.all, :className, :className, :include_blank=> true %>
+    </div>
+  </div>
+  <div class="row">
     <div class="small-8 column">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

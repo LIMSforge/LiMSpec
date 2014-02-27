@@ -1,0 +1,23 @@
+<h1>Product Classes</h1>
+
+<table>
+  <tr>
+    <th>Classname</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @product_classes.each do |product_class| %>
+  <tr>
+    <td><%= product_class.className %></td>
+    <td><%= link_to 'Show', product_class %></td>
+    <td><%= link_to 'Edit', edit_product_class_path(product_class) %></td>
+    <td><%= link_to 'Destroy', product_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product class', new_product_class_path %>
