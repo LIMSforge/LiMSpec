@@ -56,6 +56,7 @@ class UserRequirement < ActiveRecord::Base
       userReq.category_id = targetRequirement.category_id
       userReq.req_title = targetRequirement.reqTitle
       userReq.req_text = targetRequirement.reqText
+      userReq.version = targetRequirement.version
       userReq.save!
       targetRequirement.industries.each do |ind|
           indUreq = IndUserRequirement.new

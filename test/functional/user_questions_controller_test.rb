@@ -71,6 +71,12 @@ class UserQuestionsControllerTest < ActionController::TestCase
      assert_equal(@userQuestion.qText, @srcQuestion.qText)
   end
 
+  test "Reverting a user question changes the text back to the correct version of the source question" do
+      flunk("Not yet implemented")
+  end
+
+  #TODO Should we include a question as to whether to revert to current version instead of old version?
+
   test "When a user question sort order value is modified, the user modified flag is not altered" do
     login_reader
     @userQuestion = create(:user_question, user: @user, position: 5)
@@ -128,4 +134,6 @@ class UserQuestionsControllerTest < ActionController::TestCase
         @UQuests = assigns(:user_questions)
         assert_equal(@UQuests.first.id, tmpID)
   end
+
+
 end

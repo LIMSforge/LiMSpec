@@ -147,14 +147,59 @@ test "New questions should not display status dropdown for users without approve
           indQuest.industry_id = industryTwo.id
           indQuest.save!
       end
-      indUser = create(:ind_user)
-      indUser.user_id = @user.id
-      indUser.industry_id = industryOne.id
-      indUser.save!
+      @user_industry = IndUser.new
+      @user_industry.user_id = @user.id
+      @user_industry.industry_id = industryOne.id
+      @user_industry.save!
       session['showIndustry'] = true
+
       get :index
       @questions = assigns(:questions)
       assert_equal(3, @questions.length)
     end
+
+  test "When a question is modified, the previous version is retained within the system" do
+
+    oldTitle = @question.qTitle
+
+    put :update, id: @question, question: { qText: @question.qText, qTitle: 'New Title', status: @question.status }
+
+    @questions = Question.unscoped.where("qTitle = ?", oldTitle)
+
+    assert(@questions.count > 0)
+
+  end
+
+  test "When a question is modified, the version number is increased" do
+
+    originalRev = @question.version
+    put :update, id: @question, question: { qText: @question.qText, qTitle: 'New Title', status: @question.status }
+
+    @question = Question.unscoped.find(@question.id)
+
+    assert_not_equal(@question.version, originalRev)
+
+  end
+
+  test "When a new question is created, it is given a version number" do
+
+    assert(@question.version = 1)
+
+  end
+
+  test "When a question is modified, only the most current version is displayed" do
+
+    originalRev = @question.version
+    put :update, id: @question, question: { qText: @question.qText, qTitle: 'New Title', status: @question.status }
+
+    @question = Question.unscoped.find(@question.id)
+
+    get(:index)
+
+    @questions = assigns(:questions)
+
+    assert_equal(@questions.count, 1)
+
+  end
 
 end

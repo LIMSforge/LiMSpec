@@ -14,7 +14,8 @@ class RequirementsControllerTest < ActionController::TestCase
     login_admin
 
     10.times do
-              FactoryGirl.create(:requirement)
+
+      FactoryGirl.create(:requirement)
 
     end
 
@@ -42,7 +43,7 @@ class RequirementsControllerTest < ActionController::TestCase
 
   end
 
-  test "new requiremetns created by editors should get submitted status" do
+  test "new requirements created by editors should get submitted status" do
 
     login_editor
     post :create, requirement: {reqText: 'Test new requirement', reqTitle: 'New Submitted Req'}
@@ -172,7 +173,44 @@ class RequirementsControllerTest < ActionController::TestCase
     assert_equal(@requirements.length, 1)
 
   end
+  test "When a requirement is created, it is assigned a version" do
+    login_admin
+    @requirement = create(:requirement)
+    assert_equal(@requirement.version, 1)
 
+  end
+  test "When a requirement is modified, the version is updated" do
+
+    login_admin
+    @requirement = create(:requirement)
+    initialRev = @requirement.version
+    put :update, id: @requirement, requirement: { reqText: @requirement.reqText, reqTitle: "Updated requirement", status: @requirement.status }
+    @requirement = Requirement.unscoped.find(@requirement.id)
+    assert_not_equal(@requirement.version, initialRev)
+
+  end
+
+  test "When a requirement is modified, the previous version is retained within the system" do
+
+    login_admin
+     @requirement = create(:requirement)
+     originalTitle = @requirement.reqTitle
+     put :update, id: @requirement, requirement: { reqText: @requirement.reqText, reqTitle: "Updated requirement", status: @requirement.status }
+     @requirements = Requirement.unscoped.where("reqTitle = ?", originalTitle)
+     assert(@requirements.count > 0)
+
+  end
+
+  test "When a requirement is modified, only the most current version is displayed" do
+    login_admin
+    @requirement = create(:requirement)
+    originalTitle = @requirement.reqTitle
+    put :update, id: @requirement, requirement: { reqText: @requirement.reqText, reqTitle: "Updated requirement", status: @requirement.status }
+    get :index
+    @requirements = assigns(:requirements)
+    assert_equal(@requirements.length, 1)
+
+  end
 
 end
 

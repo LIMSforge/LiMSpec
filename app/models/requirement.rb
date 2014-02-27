@@ -5,7 +5,8 @@ class Requirement < ActiveRecord::Base
   has_many :user_requirements, dependent: :destroy
   has_many :responses
   belongs_to :category
-  default_scope includes(:category).order('categories.catName')
+  scope :active, where(:active => true)
+  default_scope active.includes(:category).order('categories.catName')
   scope :submitted, where(:status => :Submitted)
   scope :public, where(:status => :Public)
   has_many :users, through: :user_requirements
@@ -14,7 +15,31 @@ class Requirement < ActiveRecord::Base
 
   attr_accessible :reqText, :reqTitle, :industry_ids, :category_id, :catName, :status, :user_id, :source_id, :catAbbr, :reqNumber, :sortOrder
 
+  before_save do
 
+    if self.new_record?
+      if self.version.nil?
+        self.version=1
+        self.active = true
+      end
+
+    else
+     if (self.reqTitle_changed?) | (self.reqText_changed?) | (self.category_id_changed?)
+
+       @newReq = Requirement.new
+       @newReq.reqTitle = self.reqTitle_was
+       @newReq.reqText = self.reqText_was
+       @newReq.category_id = self.category_id_was
+       @newReq.status = self.status
+       @newReq.version = self.version
+       @newReq.active = false
+       @newReq.save!
+       self.version = self.version + 1
+     end
+
+    end
+
+  end
   searchable do
     text :reqText, :reqTitle
   end
