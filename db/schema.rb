@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20140227032359) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "productClass"
+    t.string   "headquarterLocation"
   end
 
   create_table "project_organizations", :force => true do |t|
