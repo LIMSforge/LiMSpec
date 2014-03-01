@@ -128,7 +128,7 @@ class UserRequirementsController < ApplicationController
     @user_requirement = current_user.user_requirements.find(params[:id])
     if !@user_requirement.nil?
       if @user_requirement.userModified?
-        @requirement = Requirement.find(@user_requirement.requirement_id)
+        @requirement = Requirement.find_by_id_and_version(@user_requirement.requirement_id, @user_requirement.version)
         if !@requirement.nil?
           @user_requirement.req_title = @requirement.reqTitle
           @user_requirement.req_text = @requirement.reqText

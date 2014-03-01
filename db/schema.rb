@@ -11,11 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(:version => 20140227032359) do
-=======
-ActiveRecord::Schema.define(:version => 20140226061236) do
->>>>>>> development
+
 
   create_table "app_settings", :force => true do |t|
     t.integer  "user_id"

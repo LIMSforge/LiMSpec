@@ -7,7 +7,7 @@ class UserRequirement < ActiveRecord::Base
   has_many :industries, through: :ind_user_requirements
   has_many :responses
   accepts_nested_attributes_for :category
-  attr_accessible :requirement_id, :user_id, :req_text, :req_title, :category_id, :catName, :userModified, :position, :industry_ids
+  attr_accessible :requirement_id, :user_id, :req_text, :req_title, :category_id, :catName, :userModified, :position, :industry_ids, :version
   default_scope includes(:category).order('categories.catName')
 
   searchable do
@@ -34,12 +34,16 @@ class UserRequirement < ActiveRecord::Base
   end
 
   def truncReqText
-      n = 10
+   if !self.req_text.nil?
+    n = 10
       if self.req_text.split.size > n
         self.req_text.split[0...n].join(' ') << '...'
       else
         self.req_text
       end
+   else
+     " "
+   end
   end
   def reqNumber
       if (self.category.nil? || self.category.catAbbr.nil?)
