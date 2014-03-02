@@ -11,9 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20140227032359) do
-
+ActiveRecord::Schema.define(:version => 20140302000114) do
 
   create_table "app_settings", :force => true do |t|
     t.integer  "user_id"
@@ -143,8 +141,8 @@ ActiveRecord::Schema.define(:version => 20140227032359) do
     t.string   "name"
     t.string   "vendor"
     t.text     "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "productClass"
     t.string   "headquarterLocation"
   end
