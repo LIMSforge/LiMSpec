@@ -63,6 +63,7 @@ class UserQuestionsControllerTest < ActionController::TestCase
      @srcQuestion = create(:question)
      @userQuestion = create(:user_question, user: @user)
      @userQuestion.question_id = @srcQuestion.id
+     @userQuestion.version = @srcQuestion.version
      @userQuestion.userModified = true
      @userQuestion.save!
      get :revert, id: @userQuestion
@@ -72,7 +73,30 @@ class UserQuestionsControllerTest < ActionController::TestCase
   end
 
   test "Reverting a user question changes the text back to the correct version of the source question" do
-      flunk("Not yet implemented")
+    login_admin
+    @question = create(:question, qTitle: 'First Version')
+    3.times do
+      @industry = create(:industry)
+      @indQuest = create(:ind_question, industry: @industry)
+      @indQuest.question_id = @question.id
+      @indQuest.save!
+    end
+
+    @user_question = create(:user_question, user: @user)
+    @user_question.userModified = true
+    @user_question.question_id = @question.id
+    @user_question.version = @question.version
+    @user_question.save!
+    @industry = create(:industry)
+    @indUQ = create(:ind_user_question, user_question: @user_question, industry: @industry)
+
+    #update the question here, then do the reversion.
+    @question.qTitle = 'Second Version'
+    @question.save!
+    get :revert, id: @user_question
+    @user_question = UserQuestion.find(@user_question.id)
+
+    assert_equal(@user_question.qTitle, 'First Version')
   end
 
   #TODO Should we include a question as to whether to revert to current version instead of old version?

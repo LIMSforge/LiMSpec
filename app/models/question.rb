@@ -25,14 +25,24 @@ class Question < ActiveRecord::Base
         else
          if (self.qTitle_changed?) | (self.qText_changed?)
 
-           @newQuest = Question.new
+           @newQuest = QuestionVersion.new
+           @newQuest.quest_id = self.id
            @newQuest.qTitle = self.qTitle_was
            @newQuest.qText = self.qText_was
            @newQuest.status = self.status
            @newQuest.version = self.version
-           @newQuest.active = false
            @newQuest.save!
            self.version = self.version + 1
+
+           #TODO determine if the following will work for capturing changes to the industry list, or will it only reflect the new list?
+
+                  self.industries.each do |industry|
+                    @indListMember = QuestVersionIndustries.new
+                    @indListMember.quest_id = self.id
+                    @indListMember.industry_id = industry.id
+                    @indListMember.version = @newQuest.version
+
+                  end
          end
 
         end

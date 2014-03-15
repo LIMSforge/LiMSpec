@@ -153,6 +153,7 @@ class UserRequirementsControllerTest < ActionController::TestCase
     @user_requirement.category_id = @category.id
     @user_requirement.userModified = true
     @user_requirement.requirement_id = @requirement.id
+    @user_requirement.version = @requirement.version
     @user_requirement.save!
     @industry = create(:industry)
     @indUR = create(:ind_user_requirement, user_requirement: @user_requirement, industry: @industry)
@@ -179,11 +180,12 @@ class UserRequirementsControllerTest < ActionController::TestCase
         @user_requirement = create(:user_requirement, user: @user)
         @user_requirement.userModified = true
         @user_requirement.requirement_id = @requirement.id
+        @user_requirement.version = @requirement.version
         @user_requirement.save!
         @industry = create(:industry)
         @indUR = create(:ind_user_requirement, user_requirement: @user_requirement, industry: @industry)
 
-        #update the requirement here, then do the reversion
+        #update the requirement here, then do the reversion.
         @requirement.reqTitle = 'Second Version'
         @requirement.save!
         get :revert, id: @user_requirement

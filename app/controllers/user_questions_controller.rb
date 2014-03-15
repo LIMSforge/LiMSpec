@@ -111,7 +111,7 @@ class UserQuestionsController < ApplicationController
       @user_question = current_user.user_questions.find(params[:id])
       if !@user_question.nil?
         if @user_question.userModified?
-          @question = Question.find(@user_question.question_id)
+          @question = Question.find_by_id_and_version(@user_question.question_id, @user_question.version)
           if !@question.nil?
             @user_question.qTitle = @question.qTitle
             @user_question.qText = @question.qText
@@ -125,7 +125,23 @@ class UserQuestionsController < ApplicationController
 
             end
           else
-            @noticeMessage = 'Unable to save user question, original question could not be located'
+            @questVersion = QuestionVersion.find_by_quest_id_and_version(@user_question.question_id, @user_question.version)
+            if !@questVersion.nil?
+              @user_question.qTitle = @questVersion.qTitle
+              @user_question.qText = @questVersion.qText
+              @user_question.userModified = false
+
+              if @user_question.save
+                @noticeMessage = 'User question was successfully reverted.'
+                @user_question.update_column(:userModified, false)
+              else
+                @noticeMessage = 'Unable to save user question'
+
+              end
+            else
+              @noticeMessage = 'Unable to save user question, original question could not be located'
+            end
+
           end
         end
       end

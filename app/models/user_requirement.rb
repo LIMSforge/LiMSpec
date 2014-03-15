@@ -1,6 +1,5 @@
 class UserRequirement < ActiveRecord::Base
 
-  belongs_to :requirement
   belongs_to :user
   belongs_to :category
   has_many :ind_user_requirements, dependent: :destroy

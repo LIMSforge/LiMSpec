@@ -106,6 +106,8 @@ Limspec::Application.routes.draw do
     end
   end
 
+  match "requirements/revert/:id", to: "requirements#revert", as: :revert_requirement
+
   get "/questions/review", as: :review_questions
 
   resources :questions do

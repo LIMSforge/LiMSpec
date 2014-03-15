@@ -164,7 +164,7 @@ test "New questions should not display status dropdown for users without approve
 
     put :update, id: @question, question: { qText: @question.qText, qTitle: 'New Title', status: @question.status }
 
-    @questions = Question.unscoped.where("qTitle = ?", oldTitle)
+    @questions = QuestionVersion.unscoped.where("qTitle = ?", oldTitle)
 
     assert(@questions.count > 0)
 
