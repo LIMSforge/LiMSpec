@@ -1,0 +1,24 @@
+<h1>Send a System Announcement</h1>
+
+  <% if flash[:notice] %>
+    <div class="row">
+      <div data-alert class="alert-box"><%= flash[:notice] %></div>
+    </div>
+    <% end %>
+
+<%= form_tag system_announcement_path, method: :post do %>
+  <div class="row">
+    <div class="small-8 columns">
+    <%=  label_tag :subject %>
+    <%=  text_field_tag :subject, params[:subtext] %>
+   </div>
+  </div>
+  <div class = "row">
+  <div class = "small-12 columns">
+    <%= label_tag :announcement %><br/>
+    <%= text_area_tag :announcement, params[:announcetext], size: "55 x 10" %>
+  </div>
+  </div>
+  <div class="actions"><%= submit_tag "Send Announcement" %></div>
+
+<% end %>

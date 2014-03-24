@@ -1,7 +1,8 @@
 require 'integration_test_helper'
 
-class VerifyAuthenticationProcessesTest < ActionDispatch::IntegrationTest
-  test "Incorrect password should not be authenticated" do
+describe "Authentication processes integration" do
+
+  it "Should not authenticate an incorrect password" do
      visit('/sessions/new')
      fill_in 'auth_key', with: 'foobar@example.com'
      fill_in 'password', with: 'Wrong_Password'
@@ -9,12 +10,12 @@ class VerifyAuthenticationProcessesTest < ActionDispatch::IntegrationTest
      assert page.has_content?('Sign In') #redirected back to login page
   end
 
-  test "Correct password logs in" do
+  it "Should log in a correct password" do
     authenticate_admin_user
     assert page.has_content?('Requirements')
   end
 
-  test "Logging out sends user back to authentication screen" do
+  it "Should send user back to authentication screen when logging out" do
     authenticate_admin_user
     assert page.has_content?('Requirements')
     click_link('Logout')
@@ -22,7 +23,7 @@ class VerifyAuthenticationProcessesTest < ActionDispatch::IntegrationTest
     assert !page.has_content?('Requirements')
   end
 
-  test "Create new user with identity" do
+  it "Should create new user with identity" do
     visit('/sessions/new')
     click_on('Create an account')
     fill_in 'name', with: 'Test User'
@@ -32,9 +33,10 @@ class VerifyAuthenticationProcessesTest < ActionDispatch::IntegrationTest
     assert !page.has_content?('Logout')
   end
 
-  test "Users cannot access administration functions without authorization" do
+  it "Should not allow users to access administration functions without authorization" do
       authenticate_basic_user
-      visit(administer_path)
+      visit(create_system_announcement_path)
+      save_and_open_page
       assert page.has_content?('You are not allowed')
   end
 

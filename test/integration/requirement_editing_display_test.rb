@@ -1,17 +1,11 @@
 require 'integration_test_helper'
 
-class RequirementEditingDisplayTest < ActionDispatch::IntegrationTest
+describe "Requirement editing integration" do
   # test "the truth" do
   #   assert true
   # end
-  before do
-    original_session = Sunspot.session
-    Sunspot.session = Sunspot::Rails::StubSessionProxy.new(original_session)
-  end
-  after do
-    Sunspot.session = original_session
-  end
-  test "Edited user requirements should have enabled button to revert to source requirement" do
+
+  it "should have enabled button to revert to source requirement when has been modified" do
 
      authenticate_basic_user
      requirement = create(:requirement)
@@ -27,7 +21,7 @@ class RequirementEditingDisplayTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "Non-edited requirements should not have button to revert to source requirement" do
+  it "should not have button to revert to source requirement when not modified" do
 
     authenticate_basic_user
     requirement = create(:requirement)

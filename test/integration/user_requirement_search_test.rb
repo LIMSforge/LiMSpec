@@ -1,7 +1,8 @@
 require 'integration_test_helper'
 
-class UserRequirementSearchTest < ActionDispatch::IntegrationTest
-  test 'User requirement search function returns correct number of results' do
+describe "User requirement search integration" do
+
+  it 'Should return correct number of results' do
 
         authenticate_admin_user
 

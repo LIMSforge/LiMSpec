@@ -138,6 +138,11 @@
                 <%=  link_to "Logout", logout_path %> |
                 <%=  link_to "Account", edit_user_path(current_user)  %>
               <%end%> </p>
+              <% if flash[:alert] %>
+                  <div class="row">
+                    <div data-alert class="alert-box warning"><%= flash[:alert] %></div>
+                  </div>
+               <% end %>
           </div>
           <%= yield %>
           </div>

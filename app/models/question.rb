@@ -24,6 +24,8 @@ class Question < ActiveRecord::Base
 
         else
          if (self.qTitle_changed?) | (self.qText_changed?)
+          if self.version >= self.version_was
+
 
            @newQuest = QuestionVersion.new
            @newQuest.quest_id = self.id
@@ -41,10 +43,10 @@ class Question < ActiveRecord::Base
                     @indListMember.quest_id = self.id
                     @indListMember.industry_id = industry.id
                     @indListMember.version = @newQuest.version
-
+                    @indListMember.save!
                   end
+           end
          end
-
         end
 
   end
@@ -66,7 +68,7 @@ class Question < ActiveRecord::Base
   end
 
   def copied_by_me?(user_id)
-        (self.user_questions.where("user_id = ?", user_id).length > 0)
+        UserQuestion.where(user_id: user_id, question_id: self.id).length > 0
   end
 
   def self.clone(targetQuestion)

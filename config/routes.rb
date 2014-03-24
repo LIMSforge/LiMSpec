@@ -116,6 +116,8 @@ Limspec::Application.routes.draw do
     end
   end
 
+  match "questions/revert/:id", to: "questions#revert", as: :revert_question
+
   match '/user_requirements/getXML', to: 'user_requirements#download_xml'
   match "user_requirements/revert/:id", to: "user_requirements#revert", as: :revert_user_requirement
 

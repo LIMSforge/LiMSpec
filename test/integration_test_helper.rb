@@ -12,12 +12,18 @@ include FactoryGirl::Syntax::Methods
 
 WebMock.disable_net_connect!(:allow_localhost => true)
 
-class ActionDispatch::IntegrationTest
 
+#class ActionDispatch::IntegrationTest  old definition
+
+class IntegrationTest < MiniTest::Spec
+
+  include Rails.application.routes.url_helpers
   include Capybara::DSL
-  self.use_transactional_fixtures = false
+  #self.use_transactional_fixtures = false
+  register_spec_type(/integration$/, self)
 
-  setup do
+
+  before :all do
 
     @adminUser = FactoryGirl.create(:adminUser)
     @adminUser.uid = @adminUser.id
@@ -54,6 +60,7 @@ class ActionDispatch::IntegrationTest
         fill_in 'auth_key', with: @adminUser.email
         fill_in 'password', with: 'fooBar_1'
         click_button 'Login'
+        @user = @adminUser
 
   end
 
@@ -63,11 +70,11 @@ class ActionDispatch::IntegrationTest
     fill_in 'auth_key', with: @basicUser.email
     fill_in 'password', with: 'fooBar_1'
     click_button 'Login'
-
+    @user = @basicUser
   end
 
 
-  teardown do
+  after (:each) do
 
     DatabaseCleaner.clean
     Capybara.reset_sessions!

@@ -183,6 +183,7 @@ test "New questions should not display status dropdown for users without approve
 
   test "When a new question is created, it is given a version number" do
 
+
     assert(@question.version = 1)
 
   end
@@ -202,4 +203,57 @@ test "New questions should not display status dropdown for users without approve
 
   end
 
+  test "When a question is reverted to a previous version, it gets the correct title and text" do
+
+    originalTitle = @question.qTitle
+    originalText = @question.qText
+
+    put :update, id: @question, question: {qTitle: "Second Version", qText: "second version"}
+
+    get :revert, id: @question
+
+    @question = Question.find(@question.id)
+
+    assert_equal(@question.qTitle, originalTitle)
+    assert_equal(@question.qText, originalText)
+
+  end
+
+  test "When a question is reverted, the previous associated industry list is restored" do
+
+    @industry = create(:industry, indName: "First Industry")
+    @indLink = create(:ind_question, question_id: @question.id, industry_id: @industry.id)
+
+    @indLink.save!
+    indID=[]
+    @question.ind_questions.each do |indQuest|
+      indID.push indQuest.industry_id
+    end
+
+    put :update, id: @question, question: {qTitle: "Second Version", qText: "second version", industry_ids: indID}
+
+    @industry = create(:industry, indName: "Second Industry")
+
+    @indLink.industry_id = @industry.id
+
+    @indLink.save!
+
+    get :revert, id: @question
+
+    @question = Question.find(@question.id)
+
+    @indLink = @question.ind_questions.first
+
+    assert_equal(@indLink.industry.indName, "First Industry")
+  end
+
+  test "When a question is reverted, the previous version record is removed" do
+    put :update, id: @question, question: {qTitle: "Second Version", qText: "second version"}
+
+    get :revert, id: @question
+
+    @qVersions = QuestionVersion.find_by_quest_id(@question.id)
+
+    assert_nil(@qVersions)
+  end
 end

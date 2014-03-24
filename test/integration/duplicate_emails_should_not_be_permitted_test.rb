@@ -1,17 +1,9 @@
 require 'integration_test_helper'
 
-class DuplicateEmailsShouldNotBePermittedTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-  before do
-      original_session = Sunspot.session
-      Sunspot.session = Sunspot::Rails::StubSessionProxy.new(original_session)
-    end
-    after do
-      Sunspot.session = original_session
-    end
-  test "Creating new account with unique e-mail succeeds" do
+describe "Email integration" do
+
+  it "should create new account with unique e-mail" do
+     authenticate_admin_user
      visit new_identity_path
      fill_in 'name', with: 'Test'
      fill_in 'email', with: 'new@email.com'
@@ -22,10 +14,10 @@ class DuplicateEmailsShouldNotBePermittedTest < ActionDispatch::IntegrationTest
 
   end
 
-  test "Creating new account with duplicate e-mail fails" do
+  it "should not create new account with duplicate e-mail" do
 
     Capybara.javascript_driver = :selenium
-
+    authenticate_admin_user
     visit new_identity_path
 
     fill_in 'name', with: 'Test'

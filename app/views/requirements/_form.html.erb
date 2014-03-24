@@ -14,10 +14,19 @@
     <div class="small-8 columns">
      <%= f.label "Category"%><%=  collection_select :requirement, :category_id, Category.all, :id, :catName, :include_blank=> true %>
     </div>
+
   <% if can? :approve, @requirement %>
-  <div class = "small-8 columns" id="reqStatusField">
+  <div class = "small-3 columns" id="reqStatusField">
     <%= f.label "Status" %><%= select "requirement", "status", %w[Public Rejected Submitted], :include_blank=> true %>
   </div>
+  <% end %>
+  <div class="small-3 columns">
+     <%= f.label "Version" %><%= @requirement.version %>
+  </div>
+  <% if ((can? :approve, @requirement) && (@requirement.version > 1)) %>
+    <div class="small-4 columns">
+      <%= link_to "Revert", revert_requirement_path(@requirement) %>
+    </div>
   <% end %>
 </div>
  <div class="row">
@@ -41,13 +50,15 @@
     <%= f.text_area :reqText %>
   </div>
  </div>
+  <h4>Industries</h4> <br/>
   <div class="row">
     <div class="small-12 columns">
-    <h4>Industries</h4> <br/>
+
         <% Industry.all.each do |industry| %>
           <%=  hidden_field_tag "requirement[industry_ids][]", nil %>
           <label for=" <%=dom_id(industry) %>" >
-            <%=  check_box_tag "requirement[industry_ids][]", industry.id, @requirement.industries.include?(industry) %>&nbsp<%= industry.indName %>
+            <%=  check_box_tag "requirement[industry_ids][]", industry.id, @requirement.industries.include?(industry) %>
+            <%= industry.indName %>
           </label>
         <% end %>
       </div>

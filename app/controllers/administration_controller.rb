@@ -24,7 +24,7 @@ class AdministrationController < ApplicationController
       @users.each do |user|
         UserMailer.system_announcement(user, params[:subtext], params[:announcement]).deliver
       end
-      redirect_to administer_path, notice: "Announcement has been sent"
+      redirect_to create_system_announcement_path, notice: "Announcement has been sent"
     end
   end
 
@@ -34,5 +34,16 @@ class AdministrationController < ApplicationController
       UserMailer.contact_message(user, current_user.email, params[:subtext], params[:message]).deliver
     end
     redirect_to contact_us_path, notice: "Message has been sent"
+  end
+
+  def create_system_announcement
+   if current_user.role?(:Administrator)
+
+    respond_to do |format|
+       format.html
+    end
+   else
+     redirect_to root_url, alert: "You are not allowed to access this feature"
+   end
   end
 end
