@@ -3,6 +3,11 @@
 
 <fieldset>
 <legend>Contact the LiMSpec Team</legend>
+  <% if flash[:notice] %>
+     <div class="row">
+       <div data-alert class="alert-box"><%= flash[:notice] %></div>
+     </div>
+  <% end %>
 <%= form_tag contact_path, method: :post do %>
   <div class="row">
   <div class="small-8 columns">

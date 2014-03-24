@@ -1,7 +1,7 @@
 require 'integration_test_helper'
 
-class SystemShouldRetainAwarenessThatReviewIsOngoingTest < ActionDispatch::IntegrationTest
-  test 'During requirement review process, the back link on the edit page should point to the review route' do
+describe "Requirement and question review integration" do
+  it 'Should have the back link on the edit page point to the review route when a requirement is being reviewed' do
       authenticate_admin_user
       5.times do
         create(:requirement, status: 'Submitted')
@@ -12,7 +12,7 @@ class SystemShouldRetainAwarenessThatReviewIsOngoingTest < ActionDispatch::Integ
       assert page.has_link?('Back', :href => '/requirements/review')
   end
 
-  test 'During requirement review process, the back link on the show page should point to the review route' do
+  it 'Should have the back link on the show page point to the review route when a requirement is being reviewed' do
         authenticate_admin_user
         5.times do
            create(:requirement, status: 'Submitted')
@@ -23,7 +23,7 @@ class SystemShouldRetainAwarenessThatReviewIsOngoingTest < ActionDispatch::Integ
         assert page.has_link?('Back', :href => '/requirements/review')
   end
 
-  test 'During question review process, the back link on the edit page should point to the review route' do
+  it 'Should have the back link on the edit page point to the review route when a question is being reviewed' do
         authenticate_admin_user
         5.times do
           create(:question, status: 'Submitted')
@@ -34,7 +34,7 @@ class SystemShouldRetainAwarenessThatReviewIsOngoingTest < ActionDispatch::Integ
         assert page.has_link?('Back', :href => '/questions/review')
     end
 
-    test 'During question review process, the back link on the show page should point to the review route' do
+    it 'Should have the back link on the show page point to the review route when a question is being reviewed' do
           authenticate_admin_user
           5.times do
               create(:question, status: 'Submitted')

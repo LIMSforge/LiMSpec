@@ -153,11 +153,10 @@ class UserRequirementsControllerTest < ActionController::TestCase
     @user_requirement.category_id = @category.id
     @user_requirement.userModified = true
     @user_requirement.requirement_id = @requirement.id
+    @user_requirement.version = @requirement.version
     @user_requirement.save!
     @industry = create(:industry)
     @indUR = create(:ind_user_requirement, user_requirement: @user_requirement, industry: @industry)
-
-    #update the requirement here, then do the reversion
 
     get :revert, id: @user_requirement
     @user_requirement = UserRequirement.find(@user_requirement.id)
@@ -169,7 +168,31 @@ class UserRequirementsControllerTest < ActionController::TestCase
   end
 
   test "Reverting a user requirement changes the text back to the correct version of the source requirement" do
-    flunk("Not yet implemented")
+    login_admin
+        @requirement = create(:reqWithNamedCat, reqTitle: 'First Version', categoryName: 'Test Category', categoryAbbr: 'TC')
+        3.times do
+          @industry = create(:industry)
+          @indReq = create(:ind_requirement, industry: @industry)
+          @indReq.requirement_id = @requirement.id
+          @indReq.save!
+        end
+
+        @user_requirement = create(:user_requirement, user: @user)
+        @user_requirement.userModified = true
+        @user_requirement.requirement_id = @requirement.id
+        @user_requirement.version = @requirement.version
+        @user_requirement.save!
+        @industry = create(:industry)
+        @indUR = create(:ind_user_requirement, user_requirement: @user_requirement, industry: @industry)
+
+        #update the requirement here, then do the reversion.
+        @requirement.reqTitle = 'Second Version'
+        @requirement.save!
+        get :revert, id: @user_requirement
+        @user_requirement = UserRequirement.find(@user_requirement.id)
+
+        assert_equal(@user_requirement.req_title, 'First Version')
+
   end
 
 

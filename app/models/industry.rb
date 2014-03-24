@@ -1,5 +1,5 @@
 class Industry < ActiveRecord::Base
-  has_many :ind_requirements, dependent: :destroy
+  has_many :ind_requirements #, dependent: :destroy
   has_many :requirements, through: :ind_requirements
   has_many :ind_questions, dependent: :destroy
   has_many :questions, through: :ind_questions

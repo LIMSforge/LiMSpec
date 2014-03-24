@@ -19,6 +19,7 @@ FactoryGirl.define do
      after(:create) do |user, evaluator|
         FactoryGirl.create_list(:ind_user, 1, user: user)
      end
+
      factory :adminUser do
        after(:create) do |user, evaluator|
          FactoryGirl.create_list(:adminAssignment, 1, user: user)
@@ -147,6 +148,11 @@ factory :user_question do
   qTitle "Random user question for testing"
   qText "Another testing thing"
 
+end
+
+factory :ind_user_question do
+  user_question
+  industry
 end
 
 factory :response do

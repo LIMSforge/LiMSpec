@@ -128,7 +128,7 @@ class UserRequirementsController < ApplicationController
     @user_requirement = current_user.user_requirements.find(params[:id])
     if !@user_requirement.nil?
       if @user_requirement.userModified?
-        @requirement = Requirement.find(@user_requirement.requirement_id)
+        @requirement = Requirement.find_by_id_and_version(@user_requirement.requirement_id, @user_requirement.version)
         if !@requirement.nil?
           @user_requirement.req_title = @requirement.reqTitle
           @user_requirement.req_text = @requirement.reqText
@@ -152,7 +152,31 @@ class UserRequirementsController < ApplicationController
 
           end
         else
-          @noticeMessage = 'Unable to save user requirement, original requirement could not be located'
+        @reqVersion = RequirementVersion.find_by_req_id_and_version(@user_requirement.requirement_id, @user_requirement.version)
+          if !@reqVersion.nil?
+             @user_requirement.req_title = @reqVersion.reqTitle
+             @user_requirement.req_text = @reqVersion.reqText
+             @user_requirement.category_id = @reqVersion.category_id
+             @user_requirement.userModified = false
+             @user_requirement.ind_user_requirements.each do |iur|
+                  @ind_user_req = IndUserRequirement.find(iur.id)
+                  @ind_user_req.delete
+             end
+             @user_requirement.save!
+            @industryList = ReqVersionIndustries.find_by_req_id_and_version(@user_requirement.requirement_id, @user_requirement.version)
+            if !@industryList.nil?
+              @industryList.each do |industry|
+                  @iur = IndUserRequirement.new()
+                  @iur.user_requirement_id = @user_requirement.id
+                  @iur.industry_id = industry.industry_id
+                  @iur.save
+              end
+            end
+
+          else
+            @noticeMessage = 'Unable to save user requirement, original requirement could not be located'
+          end
+
         end
       end
     end

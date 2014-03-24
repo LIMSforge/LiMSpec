@@ -196,7 +196,7 @@ class RequirementsControllerTest < ActionController::TestCase
      @requirement = create(:requirement)
      originalTitle = @requirement.reqTitle
      put :update, id: @requirement, requirement: { reqText: @requirement.reqText, reqTitle: "Updated requirement", status: @requirement.status }
-     @requirements = Requirement.unscoped.where("reqTitle = ?", originalTitle)
+     @requirements = RequirementVersion.unscoped.where("reqTitle = ?", originalTitle)
      assert(@requirements.count > 0)
 
   end
@@ -209,6 +209,75 @@ class RequirementsControllerTest < ActionController::TestCase
     get :index
     @requirements = assigns(:requirements)
     assert_equal(@requirements.length, 1)
+
+  end
+
+  test "When a requirement is reverted to a previous version, it gets the correct title, text, and category" do
+    login_admin
+    @requirement = create(:reqWithCat)
+    originalTitle = @requirement.reqTitle
+    originalText = @requirement.reqText
+    originalCategory = @requirement.category_id
+
+    @category = create(:category, catName: "Second category")
+
+    put :update, id: @requirement, requirement: { reqText: "second version", reqTitle: "Second Version", category_id: @category.id}
+
+    get :revert, id: @requirement
+
+    @requirement = Requirement.find(@requirement.id)
+
+    assert_equal(@requirement.reqTitle, originalTitle)
+    assert_equal(@requirement.reqText, originalText)
+    assert_equal(@requirement.category_id, originalCategory)
+
+
+
+  end
+
+  test "When a requirement is reverted, the previous associated industry list is restored" do
+    login_admin
+    @requirement = create(:requirement)
+
+    @industry = create(:industry, indName: "First Industry")
+    @indLink = create(:ind_requirement, requirement_id: @requirement.id)
+
+    @indLink.save!
+    indID = []
+    @requirement.ind_requirements.each do |indReq|
+      indID.push indReq.industry_id
+    end
+
+    put :update, id: @requirement, requirement: { reqText: "second version", reqTitle: "Second Version", industry_ids: indID }
+
+    @industry = create(:industry, indName: "Second Industry")
+
+    @indLink.industry_id = @industry.id
+
+    @indLink.save!
+
+    get :revert, id: @requirement
+
+    @requirement = Requirement.find(@requirement.id)
+
+    @indLink = @requirement.ind_requirements.first
+
+    assert_equal(@indLink.industry.indName, "First Industry")
+
+
+  end
+
+  test "When a requirement is reverted, the previous version record is removed" do
+
+    login_admin
+    @requirement = create(:requirement)
+    put :update, id: @requirement, requirement: { reqText: "second version", reqTitle: "Second Version"}
+
+    get :revert, id: @requirement
+
+    @reqVersions = RequirementVersion.find_by_req_id(@requirement.id)
+
+    assert_nil(@reqVersions)
 
   end
 

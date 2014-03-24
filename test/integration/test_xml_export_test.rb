@@ -1,8 +1,8 @@
 require 'integration_test_helper'
 
-class TestXmlExportTest < ActionDispatch::IntegrationTest
+describe "XML export integration" do
 
-  test "Clicking on export xml on requirements page creates an xml export file" do
+  it "Should create an xml export file when clicking on the export XML from the requirements page" do
     authenticate_admin_user
     5.times do
       create(:reqWithCat)
@@ -11,7 +11,7 @@ class TestXmlExportTest < ActionDispatch::IntegrationTest
     assert page.response_headers['Content-Disposition'].include?("filename=\"Requirements.xml\"")
   end
 
-  test "Clicking on export xml on questions page creates an xml export file" do
+  it "Should create an xml export file when clicking on the export XML link on the questions page" do
       authenticate_admin_user
       5.times do
         create(:question)

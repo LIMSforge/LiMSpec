@@ -1,10 +1,10 @@
 require 'integration_test_helper'
 
-class RequirementsDisplayTest < ActionDispatch::IntegrationTest
+describe 'requirements display integration' do
   # test "the truth" do
   #   assert true
   # end
-  test "Requirement will indicate whether it is in user collection or not" do
+  it "will indicate whether a requirement is in user collection or not" do
     authenticate_admin_user
     create(:requirement)
     visit requirements_path

@@ -129,5 +129,40 @@ class RequirementsController < InheritedResources::Base
     end
   end
 
+  def revert
+    @noticeMessage = ''
+    @requirement = Requirement.find(params[:id])
+
+    @prevVersion = RequirementVersion.find_by_req_id_and_version(@requirement.id, @requirement.version - 1)
+
+    if !@prevVersion.nil?
+      @requirement.reqText = @prevVersion.reqText
+      @requirement.reqTitle = @prevVersion.reqTitle
+      @requirement.category_id = @prevVersion.category_id
+      @requirement.version = @prevVersion.version
+      @requirement.status = @prevVersion.status
+
+      IndRequirement.delete_all(["requirement_id = ?", @requirement.id])
+
+      @reqVersionIndustries = ReqVersionIndustries.where(req_id: @requirement.id, version: @requirement.version)
+      if !@reqVersionIndustries.nil?
+        @reqVersionIndustries.each do |reqVersionIndustry|
+          @reqIndustry = @requirement.ind_requirements.new
+          @reqIndustry.industry_id = reqVersionIndustry.industry_id
+          @reqIndustry.save!
+        end
+      end
+
+      @requirement.save!
+      @prevVersion.delete
+
+    else
+      @noticeMessage = "Could not locate previous version"
+    end
+    respond_to do |format|
+      format.html { redirect_to @requirement, notice: @noticeMessage}
+    end
+  end
+
 
 end

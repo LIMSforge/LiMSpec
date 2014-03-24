@@ -107,4 +107,40 @@ class QuestionsController < InheritedResources::Base
     send_data @questions.to_xml, filename: 'Questions.xml', skip_types: true, except: [:created_at, :updated_at]
   end
 
+  def revert
+    @noticeMessage = ''
+    @question = Question.find(params[:id])
+
+    @prevVersion = QuestionVersion.find_by_quest_id_and_version(@question.id, @question.version - 1)
+
+    if !@prevVersion.nil?
+
+      @question.qTitle = @prevVersion.qTitle
+      @question.qText = @prevVersion.qText
+      @question.version = @prevVersion.version
+      @question.status = @prevVersion.status
+
+      IndQuestion.delete_all(["question_id = ?", @question.id])
+
+      @qVersionIndustries = QuestVersionIndustries.where(quest_id: @question.id, version: @question.version)
+
+      if !@qVersionIndustries.nil?
+        @qVersionIndustries.each do |qVersionIndustry|
+          @qIndustry = @question.ind_questions.new
+          @qIndustry.industry_id = qVersionIndustry.industry_id
+          @qIndustry.save!
+        end
+      end
+
+      @question.save!
+      @prevVersion.delete
+    else
+      @noticeMessage = "Could not locate previous version"
+    end
+
+    respond_to do |format|
+      format.html { redirect_to @question, notice: @noticeMessage }
+    end
+  end
+
 end

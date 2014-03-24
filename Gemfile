@@ -45,7 +45,7 @@ group :development do
   gem "railroady"
   gem "sunspot_solr"
   gem "seed_dump", "~> 0.5.3"
-
+  gem 'mysql2'
 end
 
 group :production do
