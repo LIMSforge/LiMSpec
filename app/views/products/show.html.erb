@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class = "section-container auto" data-section>
+<section class = "active">
+<p class="title" data-section-title><a href="#panel1">Product</a></p>
+  <div class="content">
+<br/>
+  <p>
   <b>Name:</b>
   <%= @product.name %>
 </p>
@@ -15,6 +19,28 @@
   <%= @product.description %>
 </p>
 
-
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+  </div>
+</section>
+  <section>
+    <p class="title" data-section-title><a href="#panel2">Assigned Questions</a></p>
+    <div class="content">
+      <table class="questTable">
+        <tr>
+          <th></th>
+          <th>Question Number</th>
+          <th>Question Title</th>
+          <th>Question Text</th>
+        </tr>
+        <% @product.question_versions.each do |question| %>
+         <tr>
+            <td><%= question.qTitle %></td>
+            <td><%= question.qText %></td>
+         </tr>
+        <% end %>
+
+    </table>
+    </div>
+  </section>
+</div>

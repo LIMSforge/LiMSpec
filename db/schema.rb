@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140305021441) do
+ActiveRecord::Schema.define(:version => 20140607044325) do
 
   create_table "app_settings", :force => true do |t|
     t.integer  "user_id"
@@ -137,6 +137,11 @@ ActiveRecord::Schema.define(:version => 20140305021441) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "product_question_version", :id => false, :force => true do |t|
+    t.integer "quest_version_id"
+    t.integer "product_id"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "vendor"
@@ -145,29 +150,6 @@ ActiveRecord::Schema.define(:version => 20140305021441) do
     t.datetime "updated_at",          :null => false
     t.string   "productClass"
     t.string   "headquarterLocation"
-  end
-
-  create_table "project_organizations", :force => true do |t|
-    t.integer "project_id"
-    t.integer "organization_id"
-    t.string  "relationship"
-  end
-
-  create_table "project_users", :force => true do |t|
-    t.integer "project_id"
-    t.integer "user_id"
-    t.string  "relationship"
-  end
-
-  create_table "projects", :force => true do |t|
-    t.string   "projectName"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "projects_users", :force => true do |t|
-    t.integer "project_id"
-    t.integer "user_id"
   end
 
   create_table "quest_version_industries", :force => true do |t|
@@ -296,11 +278,6 @@ ActiveRecord::Schema.define(:version => 20140305021441) do
     t.boolean  "emailSystemNotify",      :default => true
     t.boolean  "emailGeneral"
     t.string   "password_digest"
-  end
-
-  create_table "vendor_clients", :force => true do |t|
-    t.integer "vendor_id"
-    t.integer "client_id"
   end
 
   create_table "vendor_requests", :force => true do |t|

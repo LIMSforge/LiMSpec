@@ -3,7 +3,7 @@ require 'integration_test_helper'
 describe 'System email process integration', js: true do
 
   it "Should permit administrators to  send system alerts to users" do
-    Capybara.javascript_driver = :selenium
+    Capybara.javascript_driver = :webkit
     authenticate_admin_user
     click_on 'Administration'
     click_on 'System Announcement'
@@ -15,7 +15,7 @@ describe 'System email process integration', js: true do
   end
 
   it "Should permit users to send messages to the administrator" do
-    Capybara.javascript_driver = :selenium
+    Capybara.javascript_driver = :webkit
     3.times do
       create(:adminUser)
     end
