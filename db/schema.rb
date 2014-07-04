@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140607044325) do
+ActiveRecord::Schema.define(:version => 20140703045438) do
 
   create_table "app_settings", :force => true do |t|
     t.integer  "user_id"
@@ -137,11 +137,6 @@ ActiveRecord::Schema.define(:version => 20140607044325) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "product_question_version", :id => false, :force => true do |t|
-    t.integer "quest_version_id"
-    t.integer "product_id"
-  end
-
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "vendor"
@@ -152,7 +147,12 @@ ActiveRecord::Schema.define(:version => 20140607044325) do
     t.string   "headquarterLocation"
   end
 
-  create_table "quest_version_industries", :force => true do |t|
+  create_table "products_question_versions", :id => false, :force => true do |t|
+    t.integer "question_version_id"
+    t.integer "product_id"
+  end
+
+  create_table "question_version_industries", :force => true do |t|
     t.integer  "quest_id"
     t.integer  "industry_id"
     t.integer  "version"

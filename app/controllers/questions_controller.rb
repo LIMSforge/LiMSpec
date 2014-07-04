@@ -111,6 +111,8 @@ class QuestionsController < InheritedResources::Base
     @noticeMessage = ''
     @question = Question.find(params[:id])
 
+    @currentVersion = QuestionVersion.find_by_quest_id_and_version(@question.id, @question.version)
+
     @prevVersion = QuestionVersion.find_by_quest_id_and_version(@question.id, @question.version - 1)
 
     if !@prevVersion.nil?
@@ -122,7 +124,7 @@ class QuestionsController < InheritedResources::Base
 
       IndQuestion.delete_all(["question_id = ?", @question.id])
 
-      @qVersionIndustries = QuestVersionIndustries.where(quest_id: @question.id, version: @question.version)
+      @qVersionIndustries = QuestVersionIndustry.where(quest_id: @question.id, version: @question.version)
 
       if !@qVersionIndustries.nil?
         @qVersionIndustries.each do |qVersionIndustry|
@@ -133,7 +135,7 @@ class QuestionsController < InheritedResources::Base
       end
 
       @question.save!
-      @prevVersion.delete
+      @currentVersion.delete
     else
       @noticeMessage = "Could not locate previous version"
     end

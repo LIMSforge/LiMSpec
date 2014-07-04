@@ -16,6 +16,7 @@
     <%= f.label "Title" %><br />
     <%= f.text_field :qTitle %>
   </div>
+  <% if !@question.version.nil? %>
   <div class="small-4 columns">
     <%= f.label "Version" %><%= @question.version %>
   </div>
@@ -24,6 +25,7 @@
           <%= link_to "Revert", revert_question_path(@question) %>
         </div>
       <% end %>
+  <% end %>
   </div>
     <% if can? :approve, @question %>
       <div class = "row" id="qStatusField">

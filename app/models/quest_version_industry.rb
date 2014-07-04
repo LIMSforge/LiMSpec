@@ -1,3 +1,3 @@
-class QuestVersionIndustries < ActiveRecord::Base
+class QuestVersionIndustry < ActiveRecord::Base
   attr_accessible :industry_id, :quest_id, :version
 end

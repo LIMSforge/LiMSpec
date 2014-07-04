@@ -3,6 +3,7 @@ Limspec::Application.routes.draw do
 
   resources :product_classes
 
+  match "products/FilteredQuestionList", :to => "products#FilteredQuestionList"
 
   resources :products
 
@@ -26,6 +27,9 @@ Limspec::Application.routes.draw do
   post "administration/send_announce", :as => "system_announcement"
 
   post "administration/contact", :as => "contact"
+
+  match "product_assign_questions", :to => "products#assign_questions"
+
 
   match "administer", :to => "administration#display"
 

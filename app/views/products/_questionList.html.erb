@@ -1,0 +1,16 @@
+<table class="questTable">
+  <tr>
+    <th></th>
+    <th>Question Number</th>
+    <th>Question Title</th>
+    <th>Question Text</th>
+  </tr>
+<% @questions.each do |question| %>
+<tr>
+  <td><%= check_box_tag "question_ids[]", question.id %></td>
+  <td><%= question.questNumber %></td>
+  <td><%= question.qTitle %></td>
+  <td><%= question.qText %></td>
+</tr>
+<% end %>
+</table>

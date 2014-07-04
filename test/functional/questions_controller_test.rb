@@ -223,7 +223,7 @@ test "New questions should not display status dropdown for users without approve
 
     @industry = create(:industry, indName: "First Industry")
     @indLink = create(:ind_question, question_id: @question.id, industry_id: @industry.id)
-
+    create(:quest_version_industry, quest_id: @question.id, version: 1, industry_id: @industry.id)
     @indLink.save!
     indID=[]
     @question.ind_questions.each do |indQuest|
@@ -244,16 +244,18 @@ test "New questions should not display status dropdown for users without approve
 
     @indLink = @question.ind_questions.first
 
-    assert_equal(@indLink.industry.indName, "First Industry")
+    @indName = @indLink.industry.indName
+
+    assert_equal(@indName, "First Industry")
   end
 
-  test "When a question is reverted, the previous version record is removed" do
+  test "When a question is reverted, the previous version record is not removed" do
     put :update, id: @question, question: {qTitle: "Second Version", qText: "second version"}
 
     get :revert, id: @question
 
     @qVersions = QuestionVersion.find_by_quest_id(@question.id)
 
-    assert_nil(@qVersions)
+    assert_not_nil(@qVersions)
   end
 end

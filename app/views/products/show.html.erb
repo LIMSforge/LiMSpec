@@ -5,6 +5,7 @@
   <div class="content">
 <br/>
   <p>
+  <%= hidden_field_tag(:prod_id, @product.id) %>
   <b>Name:</b>
   <%= @product.name %>
 </p>
@@ -28,13 +29,13 @@
     <div class="content">
       <table class="questTable">
         <tr>
-          <th></th>
           <th>Question Number</th>
           <th>Question Title</th>
           <th>Question Text</th>
         </tr>
         <% @product.question_versions.each do |question| %>
          <tr>
+
             <td><%= question.qTitle %></td>
             <td><%= question.qText %></td>
          </tr>
@@ -42,5 +43,36 @@
 
     </table>
     </div>
+  </section>
+  <section>
+    <p class="title" data-section-title><a href="#panel3">Add Questions</a></p>
+    <div class="content">
+  <%= collection_select(:industry, :id, Industry.all, :id, :indName, include_blank: "All Industries") %>
+  <%= form_tag product_assign_questions_path, method: :post  do |form| %>
+  <%= hidden_field_tag "id", @product.id %>
+    <div id = "question_list">
+    <% idArray = @product.question_versions.pluck(:quest_id) %>
+    <% if idArray.count == 0 || idArray.nil? %>
+        <%  @questions = Question.all %>
+    <% else %>
+       <% @questions = Array.new %>
+       <% Question.all.each do |question| %>
+            <% if !idArray.include?(question.id) %>
+              <% @questions << question %>
+            <% end %>
+       <% end %>
+    <% end %>
+      <% if !@questions.nil? %>
+
+      <%= render "questionList" %>
+
+
+    <% end %>
+    </div>
+    </table>
+
+    <%= submit_tag "Assign Questions to Product", :name => "Select" %>
+    </div>
+   <% end %>
   </section>
 </div>

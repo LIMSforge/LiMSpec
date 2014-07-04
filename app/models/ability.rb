@@ -49,6 +49,8 @@ class Ability
 
            can :manage, :all
 
+           can :FilteredQuestionList, Product
+
            can :approve, Requirement
 
            can :review, Requirement

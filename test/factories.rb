@@ -139,6 +139,12 @@ end
 factory :question do
   qTitle "Random question for testing"
   qText "This is really just a random jumble of general silliness"
+
+end
+
+factory :question_version do
+
+
 end
 
 factory :user_question do
@@ -175,5 +181,15 @@ end
 
 factory :product do
 
+  #question_versions {[FactoryGirl.create(:question_version)]}
+
 end
+
+
+factory :quest_version_industry do
+
 end
+
+end
+
+
